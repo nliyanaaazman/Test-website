@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    frame-src https://www.google.com;
+    img-src 'self' data:; script-src 'self' 'unsafe-inline';">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEAMCOAT ENGINEERING — Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --teal:       #0891b2;
+            --teal-dark:  #0e7490;
+            --teal-deep:  #164e63;
+            --teal-lt:    #e0f7fa;
+            --teal-mid:   #cff4fc;
+            --blue:       #2563eb;
+            --white:      #ffffff;
+            --offwhite:   #f8fafc;
+            --slate:      #f1f5f9;
+            --text:       #0f172a;
+            --sub:        #475569;
+            --muted:      #94a3b8;
+            --border:     #e2e8f0;
+            --dir-color:  #7c3aed;
+            --mgmt-color: #0891b2;
+            --tech-color: #0d9488;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--white);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ─── TOP BAR ─── */
+        .top-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--teal), var(--blue), var(--teal));
+            background-size: 200% 100%;
+            animation: shift 4s linear infinite;
+        }
+        @keyframes shift { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+        /* ─── HEADER ─── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            height: 68px;
+            flex-wrap: wrap;
+        }
+
+        .logo-wrap { display: flex; align-items: center; gap: 12px; }
+
+        .logo-icon {
+            width: 36px; height: 36px; background: var(--teal);
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+        }
+
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px; letter-spacing: 0.12em; color: var(--text);
+        }
+        .logo-text span { color: var(--teal); }
+
+        nav { margin-left: auto; display: flex; gap: 32px; align-items: center; }
+
+        nav a {
+            text-decoration: none; font-size: 13px; font-weight: 600;
+            letter-spacing: 0.04em; color: var(--sub); transition: color 0.2s;
+        }
+        nav a:hover, nav a.active { color: var(--teal); }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 9px 22px; border-radius: 8px;
+            font-size: 13px; font-weight: 700; letter-spacing: 0.03em;
+            text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+        }
+        .btn-primary { background: var(--teal); color: white; }
+        .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(8,145,178,0.3); }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            margin-left: auto;
+            z-index: 200;
+        }
+        .hamburger span {
+            display: block; width: 24px; height: 2px;
+            background: var(--text); border-radius: 2px; transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ─── PAGE HERO ─── */
+        .page-hero {
+            background: var(--offwhite);
+            border-bottom: 1px solid var(--border);
+            padding: 64px 60px 56px;
+            position: relative; overflow: hidden;
+        }
+        .page-hero::after {
+            content: ''; position: absolute; top: -80px; right: -80px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(8,145,178,0.07) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none;
+        }
+        .page-hero-inner { position: relative; z-index: 1; }
+
+        .breadcrumb {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
+        }
+        .breadcrumb span { color: var(--teal); }
+
+        .page-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(42px, 6vw, 72px);
+            letter-spacing: 0.04em; color: var(--text); line-height: 1;
+        }
+        .page-title em { font-style: normal; color: var(--teal); }
+
+        .page-desc { font-size: 15px; color: var(--sub); line-height: 1.8; max-width: 520px; margin-top: 16px; }
+
+        /* ─── STATS BAR ─── */
+        .stats-bar {
+            background: var(--teal-deep);
+            display: grid; grid-template-columns: repeat(5, 1fr);
+        }
+        .stat-item {
+            padding: 28px 32px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            opacity: 0; transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-item.visible { opacity: 1; transform: none; }
+
+        .stat-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 44px; color: white; line-height: 1; letter-spacing: 0.03em;
+        }
+        .stat-num sup { font-size: 22px; color: var(--teal-mid); }
+        .stat-lbl {
+            font-size: 10px; font-weight: 600; letter-spacing: 0.18em;
+            text-transform: uppercase; color: rgba(207,244,252,0.55); margin-top: 5px;
+        }
+
+        /* ─── ORG CHART ─── */
+        .org-section { padding: 80px 60px; background: var(--white); border-bottom: 1px solid var(--border); }
+
+        .section-eyebrow {
+            font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--teal); margin-bottom: 10px;
+        }
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(32px, 4vw, 52px);
+            letter-spacing: 0.04em; color: var(--text); line-height: 1; margin-bottom: 40px;
+        }
+
+        .org-frame {
+            background: var(--offwhite); border: 1px solid var(--border);
+            border-radius: 16px; padding: 40px;
+            display: flex; justify-content: center; overflow-x: auto;
+        }
+        .org-frame img { max-width: 100%; display: block; }
+
+        /* ─── STAFF SECTION ─── */
+        .staff-section { padding: 80px 60px; background: var(--offwhite); }
+
+        .controls-row {
+            display: flex; align-items: center;
+            justify-content: space-between;
+            gap: 20px; flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .search-box {
+            display: flex; align-items: center; gap: 10px;
+            background: var(--white); border: 1.5px solid var(--border);
+            border-radius: 50px; padding: 10px 20px;
+            width: 100%; max-width: 360px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: border-color 0.2s;
+        }
+        .search-box:focus-within { border-color: var(--teal); }
+        .search-box input {
+            border: none; outline: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px; color: var(--text);
+            width: 100%; background: transparent;
+        }
+        .search-box input::placeholder { color: var(--muted); }
+
+        .filter-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+
+        .pill {
+            padding: 7px 18px; border-radius: 50px;
+            border: 1.5px solid var(--border);
+            background: var(--white); color: var(--sub);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .pill:hover { border-color: var(--teal); color: var(--teal); }
+        .pill.active { background: var(--teal); border-color: var(--teal); color: white; }
+
+        /* ─── TIER BLOCKS ─── */
+        .tier-block { margin-bottom: 64px; }
+        .tier-block:last-child { margin-bottom: 0; }
+
+        .tier-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+
+        .tier-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px; letter-spacing: 0.12em;
+            padding: 10px 28px; border-radius: 8px; color: white;
+        }
+        .tier-badge.directors  { background: var(--dir-color); }
+        .tier-badge.management { background: var(--mgmt-color); }
+        .tier-badge.technical  { background: var(--tech-color); }
+
+        .tier-count { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; }
+
+        .cards-row { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        /* ─── FLIP CARD ─── */
+        .flip-card {
+            perspective: 1000px;
+            width: 220px; min-height: 290px;
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .cards-grid .flip-card { width: auto; }
+        .flip-card.visible { opacity: 1; transform: none; }
+        .flip-card.hidden  { display: none; }
+
+        .flip-inner {
+            position: relative; width: 100%; height: 100%; min-height: 290px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+        }
+        .flip-card:hover .flip-inner { transform: rotateY(180deg); }
+
+        .flip-front, .flip-back {
+            position: absolute; width: 100%; min-height: 290px;
+            backface-visibility: hidden; -webkit-backface-visibility: hidden;
+            border-radius: 14px; padding: 22px 18px 18px;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .flip-front {
+            background: var(--white); border: 1px solid var(--border);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05); text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .flip-card:hover .flip-front { box-shadow: 0 8px 28px rgba(8,145,178,0.14); }
+
+        .dept-stripe {
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 4px; border-radius: 14px 14px 0 0;
+        }
+        .dept-stripe.directors  { background: var(--dir-color); }
+        .dept-stripe.management { background: var(--mgmt-color); }
+        .dept-stripe.technical  { background: var(--tech-color); }
+
+        .avatar-ring {
+            width: 80px; height: 80px; border-radius: 50%;
+            overflow: hidden; margin: 10px 0 14px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; border: 2.5px solid var(--border); background: var(--teal-lt);
+        }
+        .tier-block--directors .avatar-ring,
+        .tier-block--management .avatar-ring { width: 96px; height: 96px; }
+
+        .avatar-ring img { width: 100%; height: 100%; object-fit: cover; }
+
+        .avatar-initials {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px; letter-spacing: 0.06em; color: var(--teal-dark);
+        }
+        .tier-block--directors .avatar-initials,
+        .tier-block--management .avatar-initials { font-size: 32px; }
+
+        .profile-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
+        .profile-role { font-size: 12px; font-weight: 600; color: var(--teal); margin-bottom: 10px; }
+        .hover-hint { font-size: 10px; color: var(--muted); margin-top: auto; padding-top: 10px; letter-spacing: 0.04em; }
+
+        .flip-back {
+            background: var(--teal-deep);
+            transform: rotateY(180deg);
+            text-align: left; justify-content: flex-start; gap: 10px;
+            box-shadow: 0 8px 28px rgba(8,145,178,0.2);
+        }
+
+        .back-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px; letter-spacing: 0.06em; color: white; line-height: 1.2; margin-bottom: 2px;
+        }
+        .back-role { font-size: 11px; font-weight: 700; color: var(--teal-mid); margin-bottom: 10px; }
+        .back-divider { width: 100%; border: none; border-top: 1px solid rgba(255,255,255,0.15); margin-bottom: 10px; }
+        .back-row {
+            display: flex; align-items: flex-start; gap: 8px;
+            font-size: 11px; color: rgba(255,255,255,0.8); line-height: 1.6;
+        }
+        .back-row-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+        .back-label { font-weight: 700; color: var(--teal-mid); }
+        .back-list {
+            margin: 3px 0 0 0; padding-left: 14px;
+            font-size: 11px; color: rgba(255,255,255,0.75); line-height: 1.7;
+        }
+
+        .no-result {
+            display: none; text-align: center;
+            color: var(--sub); font-size: 15px;
+            padding: 48px 0; grid-column: 1/-1; opacity: 0.6;
+        }
+
+        /* ─── CONTACT ─── */
+        .contact-section { background: var(--teal-deep); padding: 64px 60px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 52px; }
+        .contact-group h4 {
+            font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--teal-mid);
+            margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+        .contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+        .ci-icon {
+            width: 30px; height: 30px; background: rgba(255,255,255,0.1);
+            border-radius: 7px; display: flex; align-items: center;
+            justify-content: center; font-size: 13px; flex-shrink: 0;
+        }
+        .ci-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; padding-top: 5px; }
+        .map-wrap { border-radius: 14px; overflow: hidden; height: 220px; border: 1px solid rgba(255,255,255,0.12); }
+        .map-wrap iframe { width: 100%; height: 100%; border: 0; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #0a3344; padding: 24px 60px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        footer p { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: rgba(207,244,252,0.35); }
+        .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.15em; color: rgba(255,255,255,0.5); }
+
+        /* ─── REVEAL ─── */
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        /* ════════════════════════════════════════
+           TABLET  (≤ 1024px)
+        ════════════════════════════════════════ */
+        @media (max-width: 1024px) {
+
+            header { padding: 0 30px; }
+
+            .page-hero { padding: 56px 30px 48px; }
+
+            /* Stats – wrap to 3 + 2 */
+            .stats-bar { grid-template-columns: repeat(3, 1fr); }
+            .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .stat-item:nth-child(1),
+            .stat-item:nth-child(2) { border-right: 1px solid rgba(255,255,255,0.1); }
+            .stat-item:nth-child(4) { border-right: 1px solid rgba(255,255,255,0.1); }
+            .stat-item:nth-child(3),
+            .stat-item:nth-child(6) { border-right: none; }
+            .stat-item:last-child { border-bottom: none; }
+
+            /* Org & staff */
+            .org-section { padding: 60px 30px; }
+            .org-frame { padding: 24px; }
+            .staff-section { padding: 60px 30px; }
+
+            /* Technical grid – 3 cols */
+            .cards-grid { grid-template-columns: repeat(3, 1fr); }
+
+            /* Contact */
+            .contact-section { padding: 56px 30px; }
+            .contact-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .map-wrap { grid-column: span 2; }
+
+            footer { padding: 24px 30px; }
+        }
+
+        /* ════════════════════════════════════════
+           MOBILE  (≤ 768px)
+        ════════════════════════════════════════ */
+        @media (max-width: 768px) {
+
+            /* HEADER */
+            header { padding: 14px 20px; height: auto; gap: 0; }
+            .hamburger { display: flex; }
+            nav {
+                display: none; flex-direction: column;
+                width: 100%; background: white;
+                border-top: 1px solid var(--border);
+                padding: 12px 0; gap: 2px; margin-left: 0; margin-top: 14px;
+            }
+            nav.open { display: flex; }
+            nav a { padding: 10px 16px; font-size: 14px; border-radius: 8px; }
+            nav a:hover { background: var(--teal-lt); }
+            nav .btn { margin: 8px 16px 0; justify-content: center; }
+
+            /* PAGE HERO */
+            .page-hero { padding: 40px 20px 36px; }
+            .page-desc { font-size: 14px; }
+
+            /* Stats – 2×3 */
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .stat-item {
+                padding: 20px 16px;
+                border-right: none !important;
+                border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+            }
+            .stat-item:nth-child(1),
+            .stat-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,0.1) !important; }
+            .stat-item:last-child { border-bottom: none !important; }
+            .stat-num { font-size: 36px; }
+
+            /* Org */
+            .org-section { padding: 48px 20px; }
+            .org-frame { padding: 16px; }
+
+            /* Staff */
+            .staff-section { padding: 48px 20px; }
+
+            /* Controls stack */
+            .controls-row { flex-direction: column; align-items: stretch; }
+            .search-box { max-width: 100%; }
+            .filter-pills { justify-content: flex-start; }
+            .pill { font-size: 11px; padding: 6px 14px; }
+
+            /* Director / Management cards – wrap on mobile */
+            .cards-row { gap: 16px; }
+            .flip-card { width: 160px; min-height: 260px; }
+            .flip-front, .flip-back { min-height: 260px; padding: 18px 14px 14px; }
+            .avatar-ring { width: 64px; height: 64px; }
+            .tier-block--directors .avatar-ring,
+            .tier-block--management .avatar-ring { width: 72px; height: 72px; }
+            .avatar-initials { font-size: 20px; }
+            .tier-block--directors .avatar-initials,
+            .tier-block--management .avatar-initials { font-size: 24px; }
+            .profile-name { font-size: 12px; }
+
+            /* Technical grid – 2 cols */
+            .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .cards-grid .flip-card { width: auto; min-height: 240px; }
+            .cards-grid .flip-front,
+            .cards-grid .flip-back { min-height: 240px; padding: 16px 12px 12px; }
+
+            /* Contact */
+            .contact-section { padding: 48px 20px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+            .map-wrap { grid-column: span 1; }
+
+            /* Footer */
+            footer { flex-direction: column; text-align: center; gap: 8px; padding: 20px; }
+        }
+
+        /* ════════════════════════════════════════
+           SMALL MOBILE  (≤ 480px)
+        ════════════════════════════════════════ */
+        @media (max-width: 480px) {
+            .page-title { font-size: clamp(36px, 11vw, 56px); }
+
+            /* Stats – 1 col */
+            .stats-bar { grid-template-columns: 1fr 1fr; }
+
+            /* Technical grid – 1 col */
+            .cards-grid { grid-template-columns: 1fr; }
+            .cards-grid .flip-card { width: 100%; }
+
+            /* Director row – 1 col */
+            .cards-row { flex-direction: column; align-items: center; }
+            .flip-card { width: 100%; max-width: 300px; }
+
+            nav .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+
+    <header>
+        <div class="logo-wrap">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+            </div>
+            <div class="logo-text">TEAMCOAT <span>ENGINEERING</span></div>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav id="nav">
+            <a href="Index.html">Home</a>
+            <a href="AboutUs.html">About</a>
+            <a href="Profile.html" class="active">Profile</a>
+            <a href="Project.html">Projects</a>
+            <a href="Services.html">Services</a>
+            <a href="#contact" class="btn btn-primary">Contact</a>
+        </nav>
+    </header>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="page-hero-inner">
+            <div class="breadcrumb">Home <span>›</span> <span>Company Profile</span></div>
+            <h1 class="page-title">COMPANY <em>PROFILE</em></h1>
+            <p class="page-desc">Meet the leadership, management, and technical team behind Teamcoat Engineering — experienced professionals committed to delivering quality construction across Malaysia.</p>
+        </div>
+    </div>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar" id="statsBanner">
+        <div class="stat-item">
+            <div class="stat-num" data-count="2">0</div>
+            <div class="stat-lbl">Directors</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num" data-count="2">0</div>
+            <div class="stat-lbl">Management</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num" data-count="16">0</div>
+            <div class="stat-lbl">Technical Staff</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num" data-count="30">0<sup>+</sup></div>
+            <div class="stat-lbl">Years Experience</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num" data-count="1992">0</div>
+            <div class="stat-lbl">Est. Year</div>
+        </div>
+    </div>
+
+    <!-- ORG CHART -->
+    <section class="org-section reveal" id="org">
+        <p class="section-eyebrow">Our Structure</p>
+        <h2 class="section-title">ORGANISATION CHART</h2>
+        <div class="org-frame">
+            <img src="../image/chart.png" alt="Teamcoat Engineering Organisation Chart">
+        </div>
+    </section>
+
+    <!-- STAFF SECTION -->
+    <section class="staff-section">
+
+        <div class="reveal" style="margin-bottom:48px;">
+            <p class="section-eyebrow">Our People</p>
+            <h2 class="section-title">MEET THE TEAM</h2>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-row reveal" style="transition-delay:0.1s">
+            <div class="search-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="searchInput" placeholder="Search by name or role…">
+            </div>
+            <div class="filter-pills">
+                <button class="pill active" data-filter="all">All Staff</button>
+                <button class="pill" data-filter="directors">Directors</button>
+                <button class="pill" data-filter="management">Management</button>
+                <button class="pill" data-filter="technical">Technical</button>
+            </div>
+        </div>
+
+        <!-- BOARD OF DIRECTORS -->
+        <div class="tier-block tier-block--directors" data-tier="directors">
+            <div class="tier-header">
+                <div class="tier-badge directors">Board of Directors</div>
+                <span class="tier-count">2 members</span>
+            </div>
+            <div class="cards-row">
+
+                <div class="flip-card" data-name="dato ir hj md nasir bin ibrahim managing director" data-dept="directors">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <div class="dept-stripe directors"></div>
+                            <div class="avatar-ring"><img src="../image/boss.jpeg" alt="Dato Nasir"></div>
+                            <p class="profile-name">Dato' Ir. Hj. Md. Nasir Bin Ibrahim</p>
+                            <p class="profile-role">Managing Director</p>
+                            <span class="hover-hint">Hover to view details</span>
+                        </div>
+                        <div class="flip-back">
+                            <p class="back-name">Dato' Ir. Hj. Md. Nasir Bin Ibrahim</p>
+                            <p class="back-role">Managing Director</p>
+                            <hr class="back-divider">
+                            <div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualifications</span><ul class="back-list"><li>Bachelor of Business Admin, UKM</li><li>BSc Civil Engineering, UT Arlington</li><li>Professional Engineer, BEM</li></ul></div></div>
+                            <div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Experience: </span>30 years</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="datin nora binti mad rais director" data-dept="directors">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <div class="dept-stripe directors"></div>
+                            <div class="avatar-ring"><span class="avatar-initials">DN</span></div>
+                            <p class="profile-name">Datin Nora Binti Mad Rais</p>
+                            <p class="profile-role">Director</p>
+                            <span class="hover-hint">Hover to view details</span>
+                        </div>
+                        <div class="flip-back">
+                            <p class="back-name">Datin Nora Binti Mad Rais</p>
+                            <p class="back-role">Director</p>
+                            <hr class="back-divider">
+                            <div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualifications</span><ul class="back-list"><li>BBA, Boise State University</li><li>MBA Management Accounting, National University</li></ul></div></div>
+                            <div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Experience: </span>26 years</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MANAGEMENT STAFF -->
+        <div class="tier-block tier-block--management" data-tier="management">
+            <div class="tier-header">
+                <div class="tier-badge management">Management Staff</div>
+                <span class="tier-count">2 members</span>
+            </div>
+            <div class="cards-row">
+
+                <div class="flip-card" data-name="rusilah binti angsor account executive" data-dept="management">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <div class="dept-stripe management"></div>
+                            <div class="avatar-ring"><span class="avatar-initials">RA</span></div>
+                            <p class="profile-name">Rusilah Binti Angsor</p>
+                            <p class="profile-role">Account Executive</p>
+                            <span class="hover-hint">Hover to view details</span>
+                        </div>
+                        <div class="flip-back">
+                            <p class="back-name">Rusilah Binti Angsor</p>
+                            <p class="back-role">Account Executive</p>
+                            <hr class="back-divider">
+                            <div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Bachelor in Finance (Hons)</li></ul></div></div>
+                            <div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Experience: </span>15 years</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="siti hawa binti hamid personal assistant admin assistant" data-dept="management">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <div class="dept-stripe management"></div>
+                            <div class="avatar-ring"><span class="avatar-initials">SH</span></div>
+                            <p class="profile-name">Siti Hawa Binti Hamid</p>
+                            <p class="profile-role">Personal Assistant / Admin</p>
+                            <span class="hover-hint">Hover to view details</span>
+                        </div>
+                        <div class="flip-back">
+                            <p class="back-name">Siti Hawa Binti Hamid</p>
+                            <p class="back-role">Personal Assistant / Admin</p>
+                            <hr class="back-divider">
+                            <div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Sijil Pelajaran Malaysia</li></ul></div></div>
+                            <div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Experience: </span>13 years</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TECHNICAL STAFF -->
+        <div class="tier-block tier-block--technical" data-tier="technical">
+            <div class="tier-header">
+                <div class="tier-badge technical">Technical Staff</div>
+                <span class="tier-count">16 members</span>
+            </div>
+            <div class="cards-grid" id="techGrid">
+
+                <div class="flip-card" data-name="abdul wahab bin jami safety officer" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">AW</span></div><p class="profile-name">Abdul Wahab Bin Jami</p><p class="profile-role">Safety Officer</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Abdul Wahab Bin Jami</p><p class="back-role">Safety Officer</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Sijil Pelajaran Malaysia</li><li>NIOSH</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>30 years</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="mokhtaruddin mohd shukor residence engineer" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">MM</span></div><p class="profile-name">Mokhtaruddin Mohd Shukor</p><p class="profile-role">Residence Engineer</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Mokhtaruddin Mohd Shukor</p><p class="back-role">Residence Engineer</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>BSc Civil Engineering</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>30 years</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="mohd lizam bin shafee project manager" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">ML</span></div><p class="profile-name">Mohd Lizam Bin Shafee</p><p class="profile-role">Project Manager</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Mohd Lizam Bin Shafee</p><p class="back-role">Project Manager</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Bachelor of Technology Management (Hons)</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>20 years</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="faqrul razi bin yahya engineer" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">FR</span></div><p class="profile-name">Faqrul Razi Bin Yahya</p><p class="profile-role">Engineer</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Faqrul Razi Bin Yahya</p><p class="back-role">Engineer</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Bachelor of Civil Engineering (Hons)</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>10 years</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="mastura binti borhan engineer" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">MB</span></div><p class="profile-name">Mastura Binti Borhan</p><p class="profile-role">Engineer</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Mastura Binti Borhan</p><p class="back-role">Engineer</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Bachelor of Civil Engineering (Hons)</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>10 years</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="meor mohd syafiq bin ahmad zubir engineer" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">MS</span></div><p class="profile-name">Meor Mohd Syafiq Bin Ahmad Zubir</p><p class="profile-role">Engineer</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Meor Mohd Syafiq Bin Ahmad Zubir</p><p class="back-role">Engineer</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Bachelor of Civil Engineering (Hons)</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>10 years</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="siti hawa binti mohamad quantity surveyor" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">SH</span></div><p class="profile-name">Siti Hawa Binti Mohamad</p><p class="profile-role">Quantity Surveyor</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Siti Hawa Binti Mohamad</p><p class="back-role">Quantity Surveyor</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Bachelor of Quantity Surveyor (Hons)</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>10 years</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="indra saufi bin mohamed yusoff quantity surveyor" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">IS</span></div><p class="profile-name">Indra Saufi Bin Mohamed Yusoff</p><p class="profile-role">Quantity Surveyor</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Indra Saufi Bin Mohamed Yusoff</p><p class="back-role">Quantity Surveyor</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Diploma in Quantity Surveyor</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>20 years</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="zailan suradi bin zainol site supervisor" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">ZS</span></div><p class="profile-name">Zailan Suradi Bin Zainol</p><p class="profile-role">Site Supervisor</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Zailan Suradi Bin Zainol</p><p class="back-role">Site Supervisor</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Diploma in Quantity Surveyor</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>20 years</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="norhasyida binti mohd noor quantity surveyor" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">NM</span></div><p class="profile-name">Norhasyida Binti Mohd Noor</p><p class="profile-role">Quantity Surveyor</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Norhasyida Binti Mohd Noor</p><p class="back-role">Quantity Surveyor</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Diploma in Building Surveyor</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>10 years</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="mohammad amirol bin mazlan drafter" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">AM</span></div><p class="profile-name">Mohammad Amirol Bin Mazlan</p><p class="profile-role">Drafter</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Mohammad Amirol Bin Mazlan</p><p class="back-role">Drafter</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Sijil Kemahiran Mara</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>3 years</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="ema farina binti khairuddin purchaser" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">EF</span></div><p class="profile-name">Ema Farina Binti Khairuddin</p><p class="profile-role">Purchaser</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Ema Farina Binti Khairuddin</p><p class="back-role">Purchaser</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Diploma Perbankan</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>1 year</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="mohammad emir harith bin rasid site engineer" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">ME</span></div><p class="profile-name">Mohammad Emir Harith Bin Rasid</p><p class="profile-role">Site Engineer</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Mohammad Emir Harith Bin Rasid</p><p class="back-role">Site Engineer</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Degree in Civil Engineering</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>8 months</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="zul izzuwan bin mahrudin site supervisor" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">ZI</span></div><p class="profile-name">Zul Izzuwan Bin Mahrudin</p><p class="profile-role">Site Supervisor</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Zul Izzuwan Bin Mahrudin</p><p class="back-role">Site Supervisor</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Diploma in Building Services</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>3 years</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="muhammad rahimi bin shaharudin site supervisor" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">MR</span></div><p class="profile-name">Muhammad Rahimi Bin Shaharudin</p><p class="profile-role">Site Supervisor</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Muhammad Rahimi Bin Shaharudin</p><p class="back-role">Site Supervisor</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Diploma in Building Engineering</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>1 year</span></div></div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-name="kamalhasan shukhukumaran abdullah driver" data-dept="technical">
+                    <div class="flip-inner">
+                        <div class="flip-front"><div class="dept-stripe technical"></div><div class="avatar-ring"><span class="avatar-initials">KS</span></div><p class="profile-name">Kamalhasan Shukhukumaran Abdullah</p><p class="profile-role">Driver</p><span class="hover-hint">Hover to view details</span></div>
+                        <div class="flip-back"><p class="back-name">Kamalhasan Shukhukumaran Abdullah</p><p class="back-role">Driver</p><hr class="back-divider"><div class="back-row"><span class="back-row-icon">🎓</span><div><span class="back-label">Qualification</span><ul class="back-list"><li>Sijil Pelajaran Malaysia</li></ul></div></div><div class="back-row"><span class="back-row-icon">💼</span><span><span class="back-label">Exp: </span>2 years</span></div></div>
+                    </div>
+                </div>
+
+                <p class="no-result" id="noResult">No staff found matching your search.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <div class="contact-section" id="contact">
+        <div class="contact-grid">
+            <div class="contact-group">
+                <h4>Phone &amp; Fax</h4>
+                <div class="contact-item"><div class="ci-icon">📞</div><span class="ci-text">03-6135 1488</span></div>
+                <div class="contact-item"><div class="ci-icon">📞</div><span class="ci-text">03-6135 2388</span></div>
+                <div class="contact-item"><div class="ci-icon">📠</div><span class="ci-text">03-6135 1210</span></div>
+            </div>
+            <div class="contact-group">
+                <h4>Email &amp; Address</h4>
+                <div class="contact-item"><div class="ci-icon">✉️</div><span class="ci-text">teamcoat_management@yahoo.com</span></div>
+                <div class="contact-item"><div class="ci-icon">✉️</div><span class="ci-text">src.consultant@gmail.com</span></div>
+                <div class="contact-item"><div class="ci-icon">📍</div><span class="ci-text">Wisma Teamcoat, No. 2 Jalan 6,<br>Selayang Pandang, 68100 Batu Caves, Selangor</span></div>
+            </div>
+            <div class="map-wrap">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.431874297598!2d101.6580939747307!3d3.2422659967327996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc46e29a8d31d7%3A0x9dce923a8349575e!2sTeamcoat%20Engineering%20Sdn.%20Bhd.!5e0!3m2!1sen!2smy!4v1773210121738!5m2!1sen!2smy"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">TEAMCOAT ENGINEERING</div>
+        <p>&copy; 2026 Teamcoat Engineering Sdn. Bhd. · Selangor, Malaysia</p>
+        <p>CIDB PPK 1960409-WP001006</p>
+    </footer>
+
+    <script>
+        /* Scroll reveal */
+        const revealObs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+        /* Card stagger per tier block */
+        const cardObs = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.flip-card').forEach((card, i) => {
+                        setTimeout(() => card.classList.add('visible'), i * 60);
+                    });
+                    cardObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.tier-block').forEach(b => cardObs.observe(b));
+
+        /* Animated counters */
+        const statsObs = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.stat-item').forEach((item, i) => {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                            const numEl = item.querySelector('.stat-num');
+                            const target = parseInt(numEl.dataset.count);
+                            let cur = 0;
+                            const step = Math.max(1, Math.ceil(target / 40));
+                            const timer = setInterval(() => {
+                                cur = Math.min(cur + step, target);
+                                numEl.childNodes[0].textContent = cur;
+                                if (cur >= target) clearInterval(timer);
+                            }, 35);
+                        }, i * 100);
+                    });
+                    statsObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+        statsObs.observe(document.getElementById('statsBanner'));
+
+        /* Hamburger */
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            nav.classList.toggle('open');
+        });
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                nav.classList.remove('open');
+            });
+        });
+
+        /* Search & filter */
+        const searchInput = document.getElementById('searchInput');
+        const pills = document.querySelectorAll('.pill');
+        const allCards = document.querySelectorAll('.flip-card');
+        const noResult = document.getElementById('noResult');
+        let activeFilter = 'all';
+
+        function applyFilters() {
+            const q = searchInput.value.toLowerCase().trim();
+            let count = 0;
+            allCards.forEach(card => {
+                const match = (!q || card.dataset.name.includes(q)) &&
+                              (activeFilter === 'all' || card.dataset.dept === activeFilter);
+                card.classList.toggle('hidden', !match);
+                if (match) count++;
+            });
+            document.querySelectorAll('.tier-block').forEach(b => {
+                b.style.display = b.querySelectorAll('.flip-card:not(.hidden)').length === 0 ? 'none' : '';
+            });
+            noResult.style.display = count === 0 ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', applyFilters);
+        pills.forEach(p => p.addEventListener('click', () => {
+            pills.forEach(x => x.classList.remove('active'));
+            p.classList.add('active');
+            activeFilter = p.dataset.filter;
+            applyFilters();
+        }));
+    </script>
+</body>
+</html>

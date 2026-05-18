@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    frame-src https://www.google.com;
+    img-src 'self' data:; script-src 'self' 'unsafe-inline';">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEAMCOAT ENGINEERING — Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --teal:      #0891b2;
+            --teal-dark: #0e7490;
+            --teal-deep: #164e63;
+            --teal-lt:   #e0f7fa;
+            --teal-mid:  #cff4fc;
+            --blue:      #2563eb;
+            --white:     #ffffff;
+            --offwhite:  #f8fafc;
+            --slate:     #f1f5f9;
+            --text:      #0f172a;
+            --sub:       #475569;
+            --muted:     #94a3b8;
+            --border:    #e2e8f0;
+            --civil:     #0891b2;
+            --water:     #0d9488;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--white);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ─── TOP BAR ─── */
+        .top-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--teal), var(--blue), var(--teal));
+            background-size: 200% 100%;
+            animation: shift 4s linear infinite;
+        }
+        @keyframes shift { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+        /* ─── HEADER ─── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            height: 68px;
+            flex-wrap: wrap;
+        }
+
+        .logo-wrap { display: flex; align-items: center; gap: 12px; }
+
+        .logo-icon {
+            width: 36px; height: 36px; background: var(--teal);
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+        }
+
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px; letter-spacing: 0.12em; color: var(--text);
+        }
+        .logo-text span { color: var(--teal); }
+
+        nav { margin-left: auto; display: flex; gap: 32px; align-items: center; }
+
+        nav a {
+            text-decoration: none; font-size: 13px; font-weight: 600;
+            letter-spacing: 0.04em; color: var(--sub); transition: color 0.2s;
+        }
+        nav a:hover { color: var(--teal); }
+        nav a.active { color: var(--teal); }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 9px 22px; border-radius: 8px;
+            font-size: 13px; font-weight: 700; letter-spacing: 0.03em;
+            text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+        }
+        .btn-primary { background: var(--teal); color: white; }
+        .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(8,145,178,0.3); }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            margin-left: auto;
+            z-index: 200;
+        }
+        .hamburger span {
+            display: block; width: 24px; height: 2px;
+            background: var(--text); border-radius: 2px; transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ─── PAGE HERO ─── */
+        .page-hero {
+            background: var(--offwhite);
+            border-bottom: 1px solid var(--border);
+            padding: 72px 60px 64px;
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; top: -100px; right: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(8,145,178,0.07) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none;
+        }
+        .page-hero-inner { position: relative; z-index: 1; max-width: 640px; }
+
+        .breadcrumb {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--muted); margin-bottom: 18px;
+        }
+        .breadcrumb span { color: var(--teal); }
+
+        .page-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(52px, 7vw, 88px);
+            letter-spacing: 0.03em; color: var(--text); line-height: 0.95;
+        }
+        .page-title em { font-style: normal; color: var(--teal); }
+
+        .page-desc { font-size: 15px; color: var(--sub); line-height: 1.85; max-width: 500px; margin-top: 18px; }
+
+        .hero-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+
+        .hero-chip {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: var(--teal-lt); color: var(--teal-dark);
+            border: 1px solid rgba(8,145,178,0.2);
+            font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; padding: 6px 14px; border-radius: 100px;
+        }
+
+        /* ─── STATS BAR ─── */
+        .stats-bar {
+            background: var(--teal-deep);
+            display: grid; grid-template-columns: repeat(4, 1fr);
+        }
+        .stat-item {
+            padding: 28px 40px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 44px; color: white; line-height: 1; letter-spacing: 0.03em;
+        }
+        .stat-num sup { font-size: 22px; color: var(--teal-mid); }
+        .stat-lbl {
+            font-size: 10px; font-weight: 600; letter-spacing: 0.18em;
+            text-transform: uppercase; color: rgba(207,244,252,0.55); margin-top: 5px;
+        }
+
+        /* ─── GALLERY ─── */
+        .gallery-section { padding: 88px 60px; background: var(--white); }
+
+        .section-eyebrow {
+            font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--teal); margin-bottom: 10px;
+        }
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(34px, 4vw, 54px);
+            letter-spacing: 0.04em; color: var(--text); line-height: 1; margin-bottom: 48px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .gallery-card {
+            border: 1px solid var(--border);
+            border-radius: 16px; overflow: hidden;
+            background: var(--white); transition: all 0.25s ease;
+        }
+        .gallery-card:hover {
+            border-color: rgba(8,145,178,0.3);
+            box-shadow: 0 8px 32px rgba(8,145,178,0.1);
+            transform: translateY(-4px);
+        }
+
+        .gallery-img-wrap {
+            width: 100%; aspect-ratio: 16/10;
+            background: var(--slate); overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .gallery-img-wrap img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .gallery-card:hover .gallery-img-wrap img { transform: scale(1.04); }
+
+        .img-placeholder {
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--teal-lt), var(--slate));
+            display: flex; align-items: center; justify-content: center;
+            flex-direction: column; gap: 10px;
+        }
+        .img-placeholder svg { width: 40px; height: 40px; opacity: 0.3; }
+        .img-placeholder span { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: 0.06em; }
+
+        .gallery-info { padding: 18px 20px; }
+        .gallery-label {
+            font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+            text-transform: uppercase; color: var(--teal); margin-bottom: 6px;
+        }
+        .gallery-name { font-size: 13px; font-weight: 700; color: var(--text); line-height: 1.5; }
+
+        .gallery-dual { display: grid; grid-template-columns: 1fr 1fr; }
+        .gallery-dual .gallery-img-wrap { aspect-ratio: 4/3; }
+
+        /* ─── TIMELINE ─── */
+        .timeline-section {
+            padding: 88px 60px;
+            background: var(--offwhite);
+            border-top: 1px solid var(--border);
+        }
+
+        .timeline-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 52px; }
+
+        .tl-tab {
+            padding: 9px 22px; border-radius: 8px;
+            border: 1.5px solid var(--border);
+            background: var(--white); color: var(--sub);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .tl-tab:hover { border-color: var(--teal); color: var(--teal); }
+        .tl-tab.active { background: var(--teal); border-color: var(--teal); color: white; }
+
+        .timeline-panel { display: none; }
+        .timeline-panel.active { display: block; }
+
+        .cat-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px; letter-spacing: 0.1em;
+            padding: 8px 24px; border-radius: 8px;
+            color: white; margin-bottom: 36px;
+        }
+        .cat-label.civil { background: var(--civil); }
+        .cat-label.water { background: var(--water); }
+
+        .tl-list { display: flex; flex-direction: column; }
+
+        .tl-item {
+            display: flex; gap: 0; align-items: stretch;
+            opacity: 0; transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .tl-item.visible { opacity: 1; transform: none; }
+
+        .tl-marker { display: flex; flex-direction: column; align-items: center; width: 40px; flex-shrink: 0; }
+
+        .tl-dot {
+            width: 30px; height: 30px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 700; color: white; flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+        .civil .tl-dot { background: var(--civil); }
+        .water .tl-dot { background: var(--water); }
+        .tl-item:hover .tl-dot { transform: scale(1.15); }
+
+        .tl-line { width: 2px; flex: 1; margin-top: 5px; }
+        .civil-panel .tl-line { background: rgba(8,145,178,0.2); }
+        .water-panel .tl-line { background: rgba(13,148,136,0.2); }
+        .tl-item:last-child .tl-line { display: none; }
+
+        .tl-content { padding: 3px 0 28px 20px; flex: 1; }
+        .tl-item:last-child .tl-content { padding-bottom: 0; }
+
+        .tl-name { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.6; margin-bottom: 6px; }
+
+        .tl-year {
+            display: inline-block;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+            padding: 3px 10px; border-radius: 100px;
+        }
+        .civil-panel .tl-year { color: var(--teal-dark); background: var(--teal-lt); }
+        .water-panel .tl-year { color: #0f766e; background: #ccfbf1; }
+
+        /* ─── CONTACT ─── */
+        .contact-section { background: var(--teal-deep); padding: 64px 60px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 52px; }
+        .contact-group h4 {
+            font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--teal-mid);
+            margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+        .contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+        .ci-icon {
+            width: 30px; height: 30px; background: rgba(255,255,255,0.1);
+            border-radius: 7px; display: flex; align-items: center;
+            justify-content: center; font-size: 13px; flex-shrink: 0;
+        }
+        .ci-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; padding-top: 5px; }
+        .map-wrap { border-radius: 14px; overflow: hidden; height: 220px; border: 1px solid rgba(255,255,255,0.12); }
+        .map-wrap iframe { width: 100%; height: 100%; border: 0; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #0a3344; padding: 24px 60px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        footer p { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: rgba(207,244,252,0.35); }
+        .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.15em; color: rgba(255,255,255,0.5); }
+
+        /* ─── REVEAL ─── */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+        .reveal.d1  { transition-delay: 0.06s; }
+        .reveal.d2  { transition-delay: 0.12s; }
+        .reveal.d3  { transition-delay: 0.18s; }
+        .reveal.d4  { transition-delay: 0.24s; }
+        .reveal.d5  { transition-delay: 0.30s; }
+        .reveal.d6  { transition-delay: 0.36s; }
+        .reveal.d7  { transition-delay: 0.42s; }
+        .reveal.d8  { transition-delay: 0.48s; }
+        .reveal.d9  { transition-delay: 0.54s; }
+        .reveal.d10 { transition-delay: 0.60s; }
+
+        /* ════════════════════════════════════════
+           TABLET  (≤ 1024px)
+        ════════════════════════════════════════ */
+        @media (max-width: 1024px) {
+
+            header { padding: 0 30px; }
+            .page-hero { padding: 56px 30px 48px; }
+
+            /* Stats – 2×2 */
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .stat-item:nth-child(1),
+            .stat-item:nth-child(2) { border-right: 1px solid rgba(255,255,255,0.1); }
+            .stat-item:nth-child(3),
+            .stat-item:nth-child(4) { border-bottom: none; }
+
+            /* Gallery – 2 cols */
+            .gallery-section { padding: 60px 30px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+
+            /* Timeline */
+            .timeline-section { padding: 60px 30px; }
+
+            /* Contact */
+            .contact-section { padding: 56px 30px; }
+            .contact-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .map-wrap { grid-column: span 2; }
+
+            footer { padding: 24px 30px; }
+        }
+
+        /* ════════════════════════════════════════
+           MOBILE  (≤ 768px)
+        ════════════════════════════════════════ */
+        @media (max-width: 768px) {
+
+            /* HEADER */
+            header { padding: 14px 20px; height: auto; gap: 0; }
+            .hamburger { display: flex; }
+            nav {
+                display: none; flex-direction: column;
+                width: 100%; background: white;
+                border-top: 1px solid var(--border);
+                padding: 12px 0; gap: 2px; margin-left: 0; margin-top: 14px;
+            }
+            nav.open { display: flex; }
+            nav a { padding: 10px 16px; font-size: 14px; border-radius: 8px; }
+            nav a:hover { background: var(--teal-lt); }
+            nav .btn { margin: 8px 16px 0; justify-content: center; }
+
+            /* PAGE HERO */
+            .page-hero { padding: 40px 20px 36px; }
+            .page-desc { font-size: 14px; }
+
+            /* Stats – 2×2 */
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .stat-item { padding: 20px 16px; }
+            .stat-num { font-size: 36px; }
+
+            /* Gallery – 1 col */
+            .gallery-section { padding: 48px 20px; }
+            .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
+
+            /* Timeline */
+            .timeline-section { padding: 48px 20px; }
+            .tl-tab { font-size: 11px; padding: 8px 14px; }
+            .cat-label { font-size: 15px; padding: 7px 18px; }
+            .tl-name { font-size: 13px; }
+
+            /* Contact */
+            .contact-section { padding: 48px 20px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+            .map-wrap { grid-column: span 1; }
+
+            /* Footer */
+            footer { flex-direction: column; text-align: center; gap: 8px; padding: 20px; }
+        }
+
+        /* ════════════════════════════════════════
+           SMALL MOBILE  (≤ 480px)
+        ════════════════════════════════════════ */
+        @media (max-width: 480px) {
+            .page-title { font-size: clamp(44px, 13vw, 64px); }
+            nav .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+
+    <header>
+        <div class="logo-wrap">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+            </div>
+            <div class="logo-text">TEAMCOAT <span>ENGINEERING</span></div>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav id="nav">
+            <a href="Index.html">Home</a>
+            <a href="AboutUs.html">About</a>
+            <a href="Profile.html">Profile</a>
+            <a href="Project.html" class="active">Projects</a>
+            <a href="Services.html">Services</a>
+            <a href="#contact" class="btn btn-primary">Contact</a>
+        </nav>
+    </header>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="page-hero-inner">
+            <div class="breadcrumb">Home <span>›</span> <span>Projects</span></div>
+            <h1 class="page-title">OUR <em>COMPLETED</em><br>PROJECTS</h1>
+            <p class="page-desc">
+                Over three decades of delivering government and private sector projects — from mosque construction and hospital buildings to school upgrades and specialist waterproofing across Malaysia.
+            </p>
+            <div class="hero-chips">
+                <div class="hero-chip">24 Civil Works</div>
+                <div class="hero-chip">24 Waterproofing Works</div>
+                <div class="hero-chip">Since 1989</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-num">48<sup>+</sup></div>
+            <div class="stat-lbl">Completed Projects</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">1989</div>
+            <div class="stat-lbl">First Project</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">2</div>
+            <div class="stat-lbl">Specialisations</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">10<sup>+</sup></div>
+            <div class="stat-lbl">Govt Agencies</div>
+        </div>
+    </div>
+
+    <!-- PHOTO GALLERY -->
+    <section class="gallery-section">
+        <div class="reveal" style="margin-bottom: 48px;">
+            <p class="section-eyebrow">Completed Works</p>
+            <h2 class="section-title">PROJECT GALLERY</h2>
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-card reveal d1">
+                <div class="gallery-dual">
+                    <div class="gallery-img-wrap"><img src="../image/1.1.png" alt="Masjid Bandar Tasek Selatan"></div>
+                    <div class="gallery-img-wrap"><img src="../image/1.2.png" alt="Masjid Bandar Tasek Selatan 2"></div>
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-label">Civil Work · 2002–2003</div>
+                    <div class="gallery-name">Masjid Bandar Tasek Selatan, Cheras</div>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal d2">
+                <div class="gallery-dual">
+                    <div class="gallery-img-wrap"><img src="../image/2.1.png" alt="Masjid Sungai Pelek"></div>
+                    <div class="gallery-img-wrap"><img src="../image/2.2.png" alt="Masjid Sungai Pelek 2"></div>
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-label">Civil Work</div>
+                    <div class="gallery-name">Masjid Sungai Pelek, Sepang</div>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal d3">
+                <div class="gallery-dual">
+                    <div class="gallery-img-wrap"><img src="../image/3.1.png" alt="Kem Wardieburn"></div>
+                    <div class="gallery-img-wrap"><img src="../image/3.2.png" alt="Kem Wardieburn 2"></div>
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-label">Civil Work · 2004</div>
+                    <div class="gallery-name">Kem Wardieburn (Pakej 3)</div>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal d4">
+                <div class="gallery-img-wrap" style="aspect-ratio:16/10;">
+                    <img src="../image/4.png" alt="Masjid Putra Putrajaya">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-label">Waterproofing · 2007–2010</div>
+                    <div class="gallery-name">Masjid Putra, Putrajaya</div>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal d5">
+                <div class="gallery-img-wrap" style="aspect-ratio:16/10;">
+                    <img src="../image/5.1.png" alt="IBS System Project">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-label">Civil Work</div>
+                    <div class="gallery-name">IBS System Project</div>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal d6">
+                <div class="gallery-img-wrap" style="aspect-ratio:16/10;">
+                    <img src="../image/5.2.png" alt="Structure Repair Works">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-label">Specialist Works</div>
+                    <div class="gallery-name">Structure Repair Works</div>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal d7">
+                <div class="gallery-img-wrap" style="aspect-ratio:16/10;">
+                    <img src="../image/6.1.png" alt="Hospital Tengku Ampuan Rahimah">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-label">Civil Work · 2007–2008</div>
+                    <div class="gallery-name">Jabatan Kecemasan Baru, Hospital Tengku Ampuan Rahimah, Klang</div>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal d8">
+                <div class="gallery-img-wrap" style="aspect-ratio:16/10;">
+                    <img src="../image/6.2.png" alt="Sekolah Menengah Sains Miri">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-label">Civil Work · 2011–2013</div>
+                    <div class="gallery-name">Sekolah Menengah Sains Miri, Sarawak</div>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal d9">
+                <div class="gallery-dual">
+                    <div class="gallery-img-wrap"><img src="../image/7.1.png" alt="IMR Kuala Lumpur"></div>
+                    <div class="gallery-img-wrap"><img src="../image/7.2.png" alt="IMR Kuala Lumpur 2"></div>
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-label">Civil Work · 2013–2015</div>
+                    <div class="gallery-name">Institut Penyelidikan Perubatan (IMR), Kuala Lumpur</div>
+                </div>
+            </div>
+
+            <div class="gallery-card reveal d10">
+                <div class="gallery-dual">
+                    <div class="gallery-img-wrap"><img src="../image/8.1.png" alt="IBS Kuala Langat"></div>
+                    <div class="gallery-img-wrap"><img src="../image/8.2.png" alt="IBS Kuala Langat 2"></div>
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-label">Civil Work · IBS</div>
+                    <div class="gallery-name">Menaik Taraf Sekolah Daif (IBS), Daerah Kuala Langat</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+    <section class="timeline-section">
+        <div class="reveal" style="margin-bottom: 40px;">
+            <p class="section-eyebrow">Track Record</p>
+            <h2 class="section-title">LIST OF COMPLETED PROJECTS</h2>
+        </div>
+
+        <div class="timeline-controls reveal">
+            <button class="tl-tab active" data-tab="civil">Civil Works</button>
+            <button class="tl-tab" data-tab="water">Waterproofing / Flooring Works</button>
+        </div>
+
+        <!-- CIVIL WORKS -->
+        <div class="timeline-panel active civil-panel" id="civil">
+            <div class="cat-label civil">Civil Works</div>
+            <div class="tl-list">
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">1</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Painting work at Season Building, Petaling Jaya</p>
+                        <span class="tl-year">1989</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">2</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Construction of Telekom Training Centre</p>
+                        <span class="tl-year">1989</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">3</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Roadwork at Telekom Ibukota, Bangsar</p>
+                        <span class="tl-year">1989</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">10</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Consortium Beaufurn and Probil — Consortium between Teamcoat, Beaufurn and Probil</p>
+                        <span class="tl-year">1994</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">11</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Renovation, Electrical, Fire Fighting, Air-Cond Installation — Kuala Lumpur and Various States</p>
+                        <span class="tl-year">1994</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">12</div><div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Renovation, Partition Ceiling and Electrical Installation at Wisma KWSG</p>
+                        <span class="tl-year">1994</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">13</div><div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Cadangan Kerja-Kerja Baik Pulih Rumah-Rumah Tetamu di Intan Bukit Kiara, Kuala Lumpur</p>
+                        <span class="tl-year">1997</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">14</div><div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Kerja-Kerja Membaiki Kerosakan Dan Mengecat Semula Asrama Putera, Asrama Puteri, Dewan di Kolej Islam Sultan Alam Shah, Klang</p>
+                        <span class="tl-year">1998</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">15</div><div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Cadangan Membina dan Menyiapkan Pencawang Pembahagian Utama 33/11kv di Universiti Malaya</p>
+                        <span class="tl-year">1998</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">19</div><div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Cadangan Membina dan Menyiapkan Masjid di Bandar Tasek Selatan, Cheras, Kuala Lumpur</p>
+                        <span class="tl-year">2002–2003</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">20</div><div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Menaik Taraf Loji Sistem Pembentungan — Kem Wardieburn, 3 Blok Kuarters Kelas G (336 Unit) dan Kerja-Kerja Berkaitan (Pakej 1)</p>
+                        <span class="tl-year">2004</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">21</div><div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Cadangan Blok Jabatan Kecemasan Baru, Hospital Tengku Ampuan Rahimah, Klang, Selangor</p>
+                        <span class="tl-year">2007–2008</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">22</div><div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Membaik Pulih Blok Bangunan Sekolah Dua (2) Tingkat Yang Terbakar — SMK Bedong, Kuala Muda, Kedah</p>
+                        <span class="tl-year">2010</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">23</div><div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Projek Baik Pulih Kerosakan Bangunan di Sekolah Menengah Sains Miri, Sarawak</p>
+                        <span class="tl-year">2011–2013</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">24</div><div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Kerja-Kerja Pembaikan dan Menaik Taraf Bangunan Utama Institut Penyelidikan Perubatan (IMR) Kuala Lumpur</p>
+                        <span class="tl-year">2013–2015</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">25</div><div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Kerja-Kerja Penggantian 24 Unit Lif Dan Lain-Lain Kerja Berkaitan Di Batallion 4 PGA Semenyih, Selangor</p>
+                        <span class="tl-year">2024</span> 
+                    </div>
+                </div>  
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot civil">26</div><div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Kerja Penggantian Tujuh Belas (17) Unit Lif di Kompleks Kediaman Kakitangan Awam (Kka) Jalan U-Thant, Kuala Lumpur</p>
+                        <span class="tl-year">2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WATERPROOFING WORKS -->
+        <div class="timeline-panel water-panel" id="water">
+            <div class="cat-label water">Specialised Waterproofing / Flooring Works</div>
+            <div class="tl-list">
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot water">1</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Expansion Joint at President House</p><span class="tl-year">1989</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot water">2</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Petronas PRI, Ulu Klang</p><span class="tl-year">1989</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot water">3</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Empangan Kenyir, Terengganu</p><span class="tl-year">1989</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot water">7</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">LLN Power Station Coonaught Bridge, Klang, Selangor</p><span class="tl-year">1991</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot water">8</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Institut Teknologi MARA, Section 2, Shah Alam, Selangor</p><span class="tl-year">1992</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot water">17</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Wisma Peladang, Kuantan</p><span class="tl-year">1994</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot water">18</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Stadium Negara, Jalan Raja Muda</p><span class="tl-year">1993–1995</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot water">19</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Cadangan Kerja-Kerja Ubahsuai Pejabat, Kantin dan Menaiktaraf Bilik Air — Kompleks Bangunan Parlimen Malaysia, Kuala Lumpur</p>
+                        <span class="tl-year">1996</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot water">20</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Cadangan Kerja-Kerja Pembaikan ke Atas Bangunan APDC, Jalan Persekutuan Persiaran Duta, KL</p>
+                        <span class="tl-year">1997</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot water">21</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Cadangan Kerja-Kerja Membaiki Kebocoran di Dewan Jubli Perak, Selangor</p>
+                        <span class="tl-year">1997</span>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-marker">
+                        <div class="tl-dot water">22</div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <p class="tl-name">Tender Kerja-Kerja Baik Pulih Rumah-Rumah Tetamu di Intan Kiara, Kuala Lumpur</p>
+                        <span class="tl-year">1998</span>
+                    </div>
+                </div>
+                </div>
+                <div class =" tl-item" >
+                    <div class =" tl-marker">
+                        <div class =" tl-dot water">23</div>
+                        <div class =" tl-line"></div>
+                    </div>
+                    <div class =" tl-content">
+                        <p class =" tl-name">Cadangan Kerja-Kerja Pembaikan Kebocoran di Masjid Putra, Putrajaya</p>
+                            <span class =" tl-year" >2007–2010</span>
+                    </div>
+                </div>
+                <div class =" tl-item">
+                    <div class =" tl-marker">
+                        <div class =" tl-dot water" >24</div>
+                        <div class =" tl-line"></div>
+                    </div>
+                    <div class =" tl-content">
+                        <p class =" tl-name" >Cadangan Pelaksanaan Projek Pembaikan Struktur Bangunan Sekolah-Sekolah Kerajaan (RPK), Zon 1 — Perlis, Kedah &amp; Pulau Pinang</p>
+                        <span class =" tl-year" >2013</span>
+                    </div>
+                </div>
+            </div>
+        </div >
+    </section>
+
+    <!-- CONTACT -->
+    <div class="contact-section" id="contact">
+        <div class="contact-grid">
+            <div class="contact-group">
+                <h4>Phone &amp; Fax</h4>
+                <div class="contact-item"><div class="ci-icon">📞</div><span class="ci-text">03-6135 1488</span></div>
+                <div class="contact-item"><div class="ci-icon">📞</div><span class="ci-text">03-6135 2388</span></div>
+                <div class="contact-item"><div class="ci-icon">📠</div><span class="ci-text">03-6135 1210</span></div>
+            </div>
+            <div class="contact-group">
+                <h4>Email &amp; Address</h4>
+                <div class="contact-item"><div class="ci-icon">✉️</div><span class="ci-text">teamcoat_management@yahoo.com</span></div>
+                <div class="contact-item"><div class="ci-icon">✉️</div><span class="ci-text">src.consultant@gmail.com</span></div>
+                <div class="contact-item"><div class="ci-icon">📍</div><span class="ci-text">Wisma Teamcoat, No. 2 Jalan 6,<br>Selayang Pandang, 68100 Batu Caves, Selangor</span></div>
+            </div>
+            <div class="map-wrap">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.431874297598!2d101.6580939747307!3d3.2422659967327996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc46e29a8d31d7%3A0x9dce923a8349575e!2sTeamcoat%20Engineering%20Sdn.%20Bhd.!5e0!3m2!1sen!2smy!4v1773210121738!5m2!1sen!2smy"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">TEAMCOAT ENGINEERING</div>
+        <p>&copy; 2026 Teamcoat Engineering Sdn. Bhd. · Selangor, Malaysia</p>
+        <p>CIDB PPK 1960409-WP001006</p>
+    </footer>
+
+    <script>
+        /* Scroll reveal */
+        const revObs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+        /* Timeline item stagger */
+        const tlObs = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.tl-item').forEach((item, i) => {
+                        setTimeout(() => item.classList.add('visible'), i * 40);
+                    });
+                    tlObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.tl-list').forEach(l => tlObs.observe(l));
+
+        /* Hamburger */
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            nav.classList.toggle('open');
+        });
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                nav.classList.remove('open');
+            });
+        });
+
+        /* Tab switching */
+        const tabs = document.querySelectorAll('.tl-tab');
+        const panels = document.querySelectorAll('.timeline-panel');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                const panel = document.getElementById(tab.dataset.tab);
+                panel.classList.add('active');
+                panel.querySelectorAll('.tl-item').forEach((item, i) => {
+                    item.classList.remove('visible');
+                    setTimeout(() => item.classList.add('visible'), i * 35);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
