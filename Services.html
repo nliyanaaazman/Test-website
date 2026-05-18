@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    frame-src https://www.google.com;
+    img-src 'self' data:; script-src 'self' 'unsafe-inline';">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEAMCOAT ENGINEERING - Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --teal:       #0891b2;
+            --teal-dark:  #0e7490;
+            --teal-deep:  #164e63;
+            --teal-lt:    #e0f7fa;
+            --teal-mid:   #cff4fc;
+            --blue:       #2563eb;
+            --white:      #ffffff;
+            --offwhite:   #f8fafc;
+            --slate:      #f1f5f9;
+            --text:       #0f172a;
+            --sub:        #475569;
+            --muted:      #94a3b8;
+            --border:     #e2e8f0;
+            --building:   #0891b2;
+            --civil:      #2563eb;
+            --me:         #7c3aed;
+            --facility:   #0d9488;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--white);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ── TOP BAR ── */
+        .top-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--teal), var(--blue), var(--teal));
+            background-size: 200% 100%;
+            animation: shift 4s linear infinite;
+        }
+
+        @keyframes shift { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+        /* ── HEADER ── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            height: 68px;
+            flex-wrap: wrap;
+        }
+
+        .logo-wrap { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
+
+        .logo-icon {
+            width: 36px; 
+            height: 36px; 
+            background: var(--teal);
+            border-radius: 8px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px; 
+            letter-spacing: 0.12em; 
+            color: var(--text);
+        }
+        .logo-text span { color: var(--teal); }
+
+        nav { 
+            margin-left: auto; 
+            display: flex; 
+            gap: 32px; 
+            align-items: center; 
+        }
+
+        nav a {
+            text-decoration: none; 
+            font-size: 13px; 
+            font-weight: 600;
+            letter-spacing: 0.04em; 
+            color: var(--sub); 
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--teal); }
+        nav a.active { color: var(--teal); }
+
+        .btn {
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px;
+            padding: 9px 22px; 
+            border-radius: 8px;
+            font-size: 13px; 
+            font-weight: 700; 
+            letter-spacing: 0.03em;
+            text-decoration: none; 
+            transition: all 0.2s; 
+            border: none; 
+            cursor: pointer;
+        }
+
+        .btn-primary { 
+            background: var(--teal); 
+            color: white; 
+        }
+
+        .btn-primary:hover { 
+            background: var(--teal-dark); 
+            transform: translateY(-1px); 
+            box-shadow: 0 8px 24px rgba(8,145,178,0.3); 
+        }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            margin-left: auto;
+            z-index: 200;
+        }
+        .hamburger span {
+            display: block; 
+            width: 24px; 
+            height: 2px;
+            background: var(--text); 
+            border-radius: 2px; 
+            transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            background: var(--offwhite);
+            border-bottom: 1px solid var(--border);
+            padding: 72px 60px 64px;
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; 
+            position: absolute; 
+            top: -100px; 
+            right: -100px;
+            width: 500px; 
+            height: 500px;
+            background: radial-gradient(circle, rgba(8,145,178,0.07) 0%, transparent 70%);
+            border-radius: 50%; 
+            pointer-events: none;
+        }
+        .page-hero::after {
+            content: ''; 
+            position: absolute; 
+            bottom: -60px; 
+            left: 15%;
+            width: 350px; 
+            height: 350px;
+            background: radial-gradient(circle, rgba(37,99,235,0.04) 0%, transparent 70%);
+            border-radius: 50%; 
+            pointer-events: none;
+        }
+        .page-hero-inner { position: relative; z-index: 1; max-width: 640px; }
+
+        .breadcrumb {
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            font-size: 12px; 
+            font-weight: 600; 
+            letter-spacing: 0.08em;
+            text-transform: uppercase; 
+            color: var(--muted); 
+            margin-bottom: 18px;
+        }
+
+        .breadcrumb span { color: var(--teal); }
+
+        .page-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(52px, 7vw, 88px);
+            letter-spacing: 0.03em; 
+            color: var(--text); 
+            line-height: 0.95;
+        }
+
+        .page-title em { 
+            font-style: normal; 
+            color: var(--teal); 
+        }
+
+        .page-desc { 
+            font-size: 15px; 
+            color: var(--sub); 
+            line-height: 1.85; 
+            max-width: 500px; 
+            margin-top: 18px; 
+        }
+
+        .hero-chips { 
+            display: flex; 
+            gap: 10px; 
+            flex-wrap: wrap; 
+            margin-top: 28px; 
+        }
+
+        .hero-chip {
+            display: inline-flex; 
+            align-items: center; 
+            gap: 7px;
+            background: var(--teal-lt); 
+            color: var(--teal-dark);
+            border: 1px solid rgba(8,145,178,0.2);
+            font-size: 11px; 
+            font-weight: 700; 
+            letter-spacing: 0.12em;
+            text-transform: uppercase; 
+            padding: 6px 14px; 
+            border-radius: 100px;
+        }
+
+        .hero-chip .dot {
+            width: 6px; 
+            height: 6px; 
+            border-radius: 50%;
+            background: #10b981; 
+            box-shadow: 0 0 0 2px rgba(16,185,129,0.25);
+        }
+
+        /* ── STATS BAR ── */
+        .stats-bar {
+            background: var(--teal-deep);
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .stat-item {
+            padding: 32px 44px; 
+            border-right: 1px solid rgba(255,255,255,0.1);
+            display: flex; 
+            align-items: center; 
+            gap: 18px;
+        }
+
+        .stat-item:last-child { 
+            border-right: none; 
+        }
+
+        .stat-icon-wrap {
+            width: 48px; 
+            height: 48px; 
+            flex-shrink: 0;
+            background: rgba(255,255,255,0.1); 
+            border-radius: 12px;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 22px;
+        }
+        .stat-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 44px; 
+            color: white; 
+            line-height: 1; 
+            letter-spacing: 0.03em;
+        }
+
+        .stat-num sup { 
+            font-size: 22px; 
+            color: var(--teal-mid); 
+        }
+
+        .stat-lbl {
+            font-size: 10px; 
+            font-weight: 600; 
+            letter-spacing: 0.18em;
+            text-transform: uppercase; 
+            color: white; 
+            margin-top: 5px;
+        }
+
+        /* ── OVERVIEW ── */
+        .overview-section { 
+            padding: 88px 60px; 
+            background: var(--white); 
+        }
+
+        .section-eyebrow {
+            font-size: 11px; 
+            font-weight: 700; 
+            letter-spacing: 0.2em;
+            text-transform: uppercase; 
+            color: var(--teal); 
+            margin-bottom: 10px;
+        }
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(34px, 4vw, 54px);
+            letter-spacing: 0.04em; 
+            color: var(--text); 
+            line-height: 1; 
+            margin-bottom: 48px;
+        }
+
+        .overview-grid {
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); gap: 20px;
+        }
+
+        .overview-card {
+            background: var(--white); 
+            border: 1px solid var(--border);
+            border-radius: 16px; 
+            padding: 32px 26px;
+            transition: all 0.25s ease; 
+            position: relative; 
+            overflow: hidden;
+        }
+        .overview-card::after {
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 0;
+            height: 3px; 
+            width: 0; 
+            transition: width 0.35s ease;
+        }
+        .overview-card.building::after { background: var(--building); }
+        .overview-card.civil::after    { background: var(--civil); }
+        .overview-card.me::after       { background: var(--me); }
+        .overview-card.facility::after { background: var(--facility); }
+        .overview-card.iso::after      { background: linear-gradient(90deg, var(--teal), var(--blue)); }
+        .overview-card.cidb::after     { background: linear-gradient(90deg, var(--blue), var(--me)); }
+
+        .overview-card:hover { 
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08); 
+            transform: translateY(-4px); 
+        }
+        .overview-card:hover::after { width: 100%; }
+
+        .ov-icon {
+            width: 52px; 
+            height: 52px; 
+            border-radius: 12px;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-size: 24px; 
+            margin-bottom: 20px;
+        }
+
+        .ov-icon.building { background: rgba(8,145,178,0.1); }
+        .ov-icon.civil    { background: rgba(37,99,235,0.1); }
+        .ov-icon.me       { background: rgba(124,58,237,0.1); }
+        .ov-icon.facility { background: rgba(13,148,136,0.1); }
+        .ov-icon.iso      { background: var(--teal-lt); }
+        .ov-icon.cidb     { background: rgba(37,99,235,0.08); }
+
+        .ov-num { 
+            font-size: 10px; 
+            font-weight: 700; 
+            letter-spacing: 0.18em; 
+            text-transform: uppercase; 
+            margin-bottom: 6px; 
+        }
+
+        .ov-num.building { color: var(--building); }
+        .ov-num.civil    { color: var(--civil); }
+        .ov-num.me       { color: var(--me); }
+        .ov-num.facility { color: var(--facility); }
+        .ov-num.iso      { color: var(--teal); }
+        .ov-num.cidb     { color: var(--blue); }
+
+        .ov-name { 
+            font-size: 15px; 
+            font-weight: 800; 
+            color: var(--text); 
+            margin-bottom: 8px; 
+        }
+
+        .ov-desc { 
+            font-size: 12px; 
+            color: var(--sub); 
+            line-height: 1.7; 
+            margin-bottom: 14px; 
+        }
+
+        .ov-count {
+            display: inline-flex; 
+            align-items: center; 
+            gap: 6px;
+            font-size: 11px; 
+            font-weight: 700; 
+            letter-spacing: 0.08em;
+            padding: 4px 10px; 
+            border-radius: 100px;
+        }
+
+        .ov-count.building { background: rgba(8,145,178,0.1);  color: var(--building); }
+        .ov-count.civil    { background: rgba(37,99,235,0.1);   color: var(--civil); }
+        .ov-count.me       { background: rgba(124,58,237,0.1);  color: var(--me); }
+        .ov-count.facility { background: rgba(13,148,136,0.1);  color: var(--facility); }
+        .ov-count.iso      { background: var(--teal-lt);        color: var(--teal-dark); }
+        .ov-count.cidb     { background: rgba(37,99,235,0.1);   color: var(--blue); }
+
+        /* ── SPECIALISATIONS ── */
+        .spec-section {
+            padding: 88px 60px; 
+            background: var(--offwhite);
+            border-top: 1px solid var(--border);
+        }
+
+        .spec-tabs { 
+            display: flex; 
+            gap: 8px; 
+            flex-wrap: wrap; 
+            margin-bottom: 40px; 
+        }
+
+        .spec-tab {
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px;
+            padding: 10px 20px; 
+            border-radius: 10px;
+            border: 1.5px solid var(--border);
+            background: var(--white); 
+            color: var(--sub);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px; 
+            font-weight: 700; 
+            letter-spacing: 0.03em;
+            cursor: pointer; 
+            transition: all 0.2s;
+        }
+        .spec-tab:hover { border-color: var(--teal); color: var(--teal); }
+        .spec-tab.active.building { background: var(--building); border-color: var(--building); color: white; }
+        .spec-tab.active.civil    { background: var(--civil);    border-color: var(--civil);    color: white; }
+        .spec-tab.active.me       { background: var(--me);       border-color: var(--me);       color: white; }
+        .spec-tab.active.facility { background: var(--facility); border-color: var(--facility); color: white; }
+
+        .tab-count {
+            font-size: 10px; 
+            font-weight: 700;
+            background: rgba(255,255,255,0.25); 
+            padding: 2px 7px; 
+            border-radius: 100px;
+        }
+        .spec-tab:not(.active) .tab-count { background: var(--slate); color: var(--muted); }
+
+        .spec-panel { display: none; }
+        .spec-panel.active { display: block; }
+
+        .panel-bar {
+            display: flex; 
+            align-items: center; 
+            gap: 14px;
+            padding: 16px 20px; 
+            border-radius: 12px;
+            margin-bottom: 28px; 
+            border: 1px solid transparent;
+        }
+        .panel-bar.building { background: rgba(8,145,178,0.07);  border-color: rgba(8,145,178,0.15); }
+        .panel-bar.civil    { background: rgba(37,99,235,0.07);   border-color: rgba(37,99,235,0.15); }
+        .panel-bar.me       { background: rgba(124,58,237,0.07);  border-color: rgba(124,58,237,0.15); }
+        .panel-bar.facility { background: rgba(13,148,136,0.07);  border-color: rgba(13,148,136,0.15); }
+
+        .panel-bar-icon { 
+            font-size: 22px; 
+        }
+
+        .panel-bar-title { 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 22px; 
+            letter-spacing: 0.08em; 
+        }
+
+        .panel-bar-title.building { color: var(--building); }
+        .panel-bar-title.civil    { color: var(--civil); }
+        .panel-bar-title.me       { color: var(--me); }
+        .panel-bar-title.facility { color: var(--facility); }
+
+        .panel-bar-sub { 
+            margin-left: auto; 
+            font-size: 11px; 
+            font-weight: 700; 
+            letter-spacing: 0.1em; 
+            text-transform: uppercase; 
+            color: var(--muted); 
+        }
+
+        .tags-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 12px;
+        }
+
+        .spec-tag {
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+            background: var(--white); 
+            border: 1px solid var(--border);
+            border-radius: 10px; 
+            padding: 13px 16px; 
+            transition: all 0.2s;
+        }
+
+        .spec-tag:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+        .spec-tag:hover.building-tag { border-color: var(--building); }
+        .spec-tag:hover.civil-tag    { border-color: var(--civil); }
+        .spec-tag:hover.me-tag       { border-color: var(--me); }
+        .spec-tag:hover.facility-tag { border-color: var(--facility); }
+
+        .tag-code {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 13px; 
+            letter-spacing: 0.08em;
+            padding: 4px 10px; 
+            border-radius: 6px;
+            flex-shrink: 0; 
+            min-width: 52px; 
+            text-align: center;
+        }
+
+        .building-tag .tag-code { background: rgba(8,145,178,0.1);  color: var(--building); }
+        .civil-tag .tag-code    { background: rgba(37,99,235,0.1);   color: var(--civil); }
+        .me-tag .tag-code       { background: rgba(124,58,237,0.1);  color: var(--me); }
+        .facility-tag .tag-code { background: rgba(13,148,136,0.1);  color: var(--facility); }
+
+        .tag-name { 
+            font-size: 13px; 
+            font-weight: 600; 
+            color: var(--text); 
+            line-height: 1.4; 
+        }
+
+        .empty-tag {
+            background: var(--white); 
+            border: 1px dashed var(--border);
+            border-radius: 10px; 
+            padding: 24px; 
+            text-align: center;
+            color: var(--muted); 
+            font-size: 13px; 
+            grid-column: 1 / -1;
+        }
+
+        /* ── GRADE HIGHLIGHT ── */
+        .grade-section { 
+            padding: 80px 60px; 
+            background: var(--white); 
+            border-top: 1px solid var(--border); }
+
+        .grade-card {
+            background: var(--teal-deep); 
+            border-radius: 20px; 
+            padding: 48px 56px;
+            display: grid; 
+            grid-template-columns: 1fr auto;
+            gap: 40px; 
+            align-items: center;
+            position: relative; 
+            overflow: hidden;
+        }
+        .grade-card::before {
+            content: ''; 
+            position: absolute; 
+            top: -60px; 
+            right: -60px;
+            width: 300px; 
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            border-radius: 50%; 
+            pointer-events: none;
+        }
+
+        .grade-eyebrow { 
+            font-size: 10px; 
+            font-weight: 700; 
+            letter-spacing: 0.2em; 
+            text-transform: uppercase; 
+            color: var(--teal-mid); 
+            margin-bottom: 10px; 
+        }
+
+        .grade-title { 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 36px; 
+            letter-spacing: 0.06em; 
+            color: white; 
+            margin-bottom: 14px; 
+            line-height: 1; 
+        }
+
+        .grade-desc { 
+            font-size: 14px; 
+            color: rgba(255,255,255,0.65); 
+            line-height: 1.8; 
+            max-width: 500px; 
+        }
+         
+        .grade-certs { 
+            display: flex; 
+            gap: 10px; 
+            flex-wrap: wrap; 
+            margin-top: 20px; 
+        }
+
+        .grade-cert {
+            display: inline-flex; 
+            align-items: center; 
+            gap: 6px;
+            background: rgba(255,255,255,0.1); 
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 6px 14px; 
+            border-radius: 8px;
+            font-size: 11px; 
+            font-weight: 700; 
+            color: rgba(255,255,255,0.85); 
+            letter-spacing: 0.08em;
+        }
+
+        .grade-cert .tick { color: #10b981; }
+
+        .grade-badge-big {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 96px; 
+            letter-spacing: 0.04em; 
+            color: white; 
+            line-height: 1;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .grade-badge-big span { 
+            font-size: 28px; 
+            color: var(--teal-mid);
+            letter-spacing: 0.2em;
+            line-height: 1;
+        }
+
+        /* ── CONTACT ── */
+        .contact-section { 
+            background: var(--teal-deep); 
+            padding: 64px 60px; 
+        }
+
+        .contact-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1.5fr; 
+            gap: 52px; 
+        }
+
+        .contact-group h4 {
+            font-size: 11px; 
+            font-weight: 700; 
+            letter-spacing: 0.2em;
+            text-transform: uppercase; 
+            color: var(--teal-mid);
+            margin-bottom: 20px; 
+            padding-bottom: 12px; 
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .contact-item { 
+            display: flex; 
+            align-items: flex-start;
+            gap: 12px; 
+            margin-bottom: 14px; 
+        }
+        
+        .ci-icon {
+            width: 30px; 
+            height: 30px; 
+            background: rgba(255,255,255,0.1);
+            border-radius: 7px; 
+            display: flex; 
+            align-items: center;
+            justify-content: center; 
+            font-size: 13px; 
+            flex-shrink: 0;
+        }
+
+        .ci-text { 
+            font-size: 13px; 
+            color: rgba(255,255,255,0.7); 
+            line-height: 1.6; 
+            padding-top: 5px; 
+        }
+
+        .map-wrap { 
+            border-radius: 14px; 
+            overflow: hidden; 
+            height: 220px; 
+            border: 1px solid rgba(255,255,255,0.12); 
+        }
+
+        .map-wrap iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: 0; 
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #0a3344; 
+            padding: 24px 60px;
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between;
+        }
+
+        footer p { 
+            font-size: 12px; 
+            font-weight: 600; 
+            letter-spacing: 0.08em; 
+            color: rgba(207,244,252,0.35); 
+        }
+        .footer-logo { 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 18px; 
+            letter-spacing: 0.15em; 
+            color: rgba(255,255,255,0.5); 
+        }
+
+        /* ── REVEAL ── */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+        .reveal.d1 { transition-delay: 0.07s; }
+        .reveal.d2 { transition-delay: 0.14s; }
+        .reveal.d3 { transition-delay: 0.21s; }
+        .reveal.d4 { transition-delay: 0.28s; }
+        .reveal.d5 { transition-delay: 0.35s; }
+        .reveal.d6 { transition-delay: 0.42s; }
+
+        /* TABLET  (≤ 1024px) */
+        @media (max-width: 1024px) {
+
+            header { padding: 0 30px; }
+
+            .page-hero { padding: 56px 30px 48px; }
+
+            /* Stats – keep 3 col but tighten padding */
+            .stats-bar { grid-template-columns: repeat(3, 1fr); }
+            .stat-item { padding: 24px 20px; gap: 12px; }
+            .stat-num { font-size: 36px; }
+
+            /* Overview – 2 cols */
+            .overview-section { padding: 60px 30px; }
+            .overview-grid { grid-template-columns: repeat(2, 1fr); }
+
+            /* Spec */
+            .spec-section { padding: 60px 30px; }
+            .tags-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+
+            /* Grade card – stack */
+            .grade-section { padding: 60px 30px; }
+            .grade-card {
+                grid-template-columns: 1fr;
+                padding: 36px 32px;
+            }
+            .grade-badge-big { font-size: 72px; }
+
+            /* Contact */
+            .contact-section { padding: 56px 30px; }
+            .contact-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .map-wrap { grid-column: span 2; }
+
+            footer { padding: 24px 30px; }
+        }
+
+        /*MOBILE  (≤ 768px)*/
+        @media (max-width: 768px) {
+
+            /* HEADER */
+            header { padding: 14px 20px; height: auto; gap: 0; }
+
+            .hamburger { display: flex; }
+
+            nav {
+                display: none; flex-direction: column;
+                width: 100%; background: white;
+                border-top: 1px solid var(--border);
+                padding: 12px 0; gap: 2px; margin-left: 0; margin-top: 14px;
+            }
+            nav.open { display: flex; }
+            nav a { padding: 10px 16px; font-size: 14px; border-radius: 8px; }
+            nav a:hover { background: var(--teal-lt); }
+            nav .btn { margin: 8px 16px 0; justify-content: center; }
+
+            /* PAGE HERO */
+            .page-hero { padding: 40px 20px 36px; }
+            .page-desc { font-size: 14px; }
+
+            /* Stats – 1 col stack */
+            .stats-bar { grid-template-columns: 1fr; }
+            .stat-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                padding: 20px 20px;
+            }
+            .stat-item:last-child { border-bottom: none; }
+            .stat-num { font-size: 40px; }
+
+            /* Overview – 1 col */
+            .overview-section { padding: 48px 20px; }
+            .overview-grid { grid-template-columns: 1fr; gap: 14px; }
+
+            /* Spec tabs – wrap naturally, smaller text */
+            .spec-section { padding: 48px 20px; }
+            .spec-tab { font-size: 11px; padding: 8px 14px; }
+            .tags-grid { grid-template-columns: 1fr; }
+
+            /* Grade */
+            .grade-section { padding: 48px 20px; }
+            .grade-card { padding: 28px 24px; }
+            .grade-title { font-size: 26px; }
+            .grade-badge-big { font-size: 56px; }
+
+            /* Contact */
+            .contact-section { padding: 48px 20px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+            .map-wrap { grid-column: span 1; }
+
+            /* Footer */
+            footer { flex-direction: column; text-align: center; gap: 8px; padding: 20px; }
+        }
+
+        /*SMALL MOBILE  (≤ 480px)*/
+        @media (max-width: 480px) {
+            .page-title { font-size: clamp(44px, 13vw, 64px); }
+            .spec-tab { font-size: 10px; padding: 7px 10px; gap: 5px; }
+            nav .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+
+    <header>
+        <div class="logo-wrap">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+            </div>
+            <div class="logo-text">TEAMCOAT <span>ENGINEERING</span></div>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav id="nav">
+            <a href="index.html">Home</a>
+            <a href="AboutUs.html">About</a>
+            <a href="Profile.html">Profile</a>
+            <a href="Project.html">Projects</a>
+            <a href="Services.html" class="active">Services</a>
+            <a href="#contact" class="btn btn-primary">Contact</a>
+        </nav>
+    </header>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="page-hero-inner">
+            <div class="breadcrumb">Home <span>›</span> <span>Services</span></div>
+            <h1 class="page-title">OUR <em>SERVICES</em><br>&amp; EXPERTISE</h1>
+            <p class="page-desc">
+                CIDB Grade G7 certified across four core disciplines — Building Works, Civil Engineering, Mechanical &amp; Electrical, and Facility Management — with 29 registered specialisations since 1989.
+            </p>
+            <div class="hero-chips">
+                <div class="hero-chip"><span class="dot"></span> CIDB G7 Registered</div>
+                <div class="hero-chip">29 Specialisations</div>
+                <div class="hero-chip">4 Disciplines</div>
+                <div class="hero-chip">Since 1989</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-icon-wrap">🏗️</div>
+            <div>
+                <div class="stat-num"><span class="cnt" data-target="30">0</span><sup>+</sup></div>
+                <div class="stat-lbl">Years of Experience</div>
+            </div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon-wrap">🏅</div>
+            <div>
+                <div class="stat-num">G<span class="cnt" data-target="7">0</span></div>
+                <div class="stat-lbl">CIDB Grade</div>
+            </div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon-wrap">🗂️</div>
+            <div>
+                <div class="stat-num"><span class="cnt" data-target="4">0</span></div>
+                <div class="stat-lbl">Specialisation Categories</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERVIEW CARDS -->
+    <section class="overview-section">
+        <div class="reveal" style="margin-bottom: 48px;">
+            <p class="section-eyebrow">What We Offer</p>
+            <h2 class="section-title">CORE DISCIPLINES</h2>
+        </div>
+
+        <div class="overview-grid">
+            <div class="overview-card building reveal d1">
+                <div class="ov-icon building">🏢</div>
+                <div class="ov-num building">Category B</div>
+                <div class="ov-name">Building Works</div>
+                <div class="ov-desc">Structural construction, waterproofing, IBS systems, hospital works, renovation, painting, tiling, and building maintenance.</div>
+                <div class="ov-count building">12 Specialisations</div>
+            </div>
+
+            <div class="overview-card civil reveal d2">
+                <div class="ov-icon civil">🛣️</div>
+                <div class="ov-num civil">Category CE</div>
+                <div class="ov-name">Civil Engineering</div>
+                <div class="ov-desc">Roads, bridges, drainage, slope protection, piling, concrete testing, earthworks, landscape, and structural repair.</div>
+                <div class="ov-count civil">15 Specialisations</div>
+            </div>
+
+            <div class="overview-card me reveal d3">
+                <div class="ov-icon me">⚙️</div>
+                <div class="ov-num me">Category ME</div>
+                <div class="ov-name">Mechanical &amp; Electrical</div>
+                <div class="ov-desc">Lifts, escalators, and miscellaneous mechanical equipment installation and commissioning.</div>
+                <div class="ov-count me">2 Specialisations</div>
+            </div>
+
+            <div class="overview-card facility reveal d4">
+                <div class="ov-icon facility">📊</div>
+                <div class="ov-num facility">Category F</div>
+                <div class="ov-name">Facility Management</div>
+                <div class="ov-desc">Management and upkeep of built facilities, including operations support and maintenance coordination.</div>
+                <div class="ov-count facility">Registered</div>
+            </div>
+
+            <div class="overview-card iso reveal d5">
+                <div class="ov-icon iso">📋</div>
+                <div class="ov-num iso">Certification</div>
+                <div class="ov-name">MS ISO 9001:2015</div>
+                <div class="ov-desc">Certified by SIRIM to international quality management standards (AR 3339) — ensuring consistent, high-quality project delivery.</div>
+                <div class="ov-count iso">SIRIM Certified</div>
+            </div>
+
+            <div class="overview-card cidb reveal d6">
+                <div class="ov-icon cidb">🏆</div>
+                <div class="ov-num cidb">Accreditation</div>
+                <div class="ov-name">CIDB SCORE 3 Star</div>
+                <div class="ov-desc">Awarded the CIDB SCORE 3 Star rating for best practices in construction safety, health, environment, and quality management.</div>
+                <div class="ov-count cidb">3 Star Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALISATIONS -->
+    <section class="spec-section">
+        <div class="reveal" style="margin-bottom: 40px;">
+            <p class="section-eyebrow">CIDB Registered</p>
+            <h2 class="section-title">KATEGORI &amp; PENGKHUSUSAN</h2>
+        </div>
+
+        <div class="spec-tabs reveal">
+            <button class="spec-tab active building" data-tab="building">
+                🏢 Building (B) <span class="tab-count">12</span>
+            </button>
+            <button class="spec-tab civil" data-tab="civil">
+                🛣️ Civil Engineering (CE) <span class="tab-count">15</span>
+            </button>
+            <button class="spec-tab me" data-tab="mechanical">
+                ⚙️ M&amp;E <span class="tab-count">2</span>
+            </button>
+            <button class="spec-tab facility" data-tab="facility">
+                📊 Facility Management (F) <span class="tab-count">-</span>
+            </button>
+        </div>
+
+        <!-- BUILDING PANEL -->
+        <div class="spec-panel active" id="building">
+            <div class="panel-bar building">
+                <span class="panel-bar-icon">🏢</span>
+                <span class="panel-bar-title building">Building Works</span>
+                <span class="panel-bar-sub">12 Specialisations</span>
+            </div>
+            <div class="tags-grid">
+                <div class="spec-tag building-tag"><span class="tag-code">B01</span><span class="tag-name">IBS: Sistem konkrit pasang siap</span></div>
+                <div class="spec-tag building-tag"><span class="tag-code">B02</span><span class="tag-name">IBS: Sistem kerangka keluli</span></div>
+                <div class="spec-tag building-tag"><span class="tag-code">B03</span><span class="tag-name">Pemulihan dan pemuliharaan</span></div>
+                <div class="spec-tag building-tag"><span class="tag-code">B04</span><span class="tag-name">Kerja-kerja pembinaan bangunan</span></div>
+                <div class="spec-tag building-tag"><span class="tag-code">B06</span><span class="tag-name">Kerja pembaikan struktur konkrit</span></div>
+                <div class="spec-tag building-tag"><span class="tag-code">B08</span><span class="tag-name">Pemasangan bahan kalis air</span></div>
+                <div class="spec-tag building-tag"><span class="tag-code">B12</span><span class="tag-name">Kerja pemasangan kaca</span></div>
+                <div class="spec-tag building-tag"><span class="tag-code">B13</span><span class="tag-name">Pemasangan jubin</span></div>
+                <div class="spec-tag building-tag"><span class="tag-code">B14</span><span class="tag-name">Kerja-kerja cat</span></div>
+                <div class="spec-tag building-tag"><span class="tag-code">B24</span><span class="tag-name">Kerja penyeggaraan bangunan</span></div>
+                <div class="spec-tag building-tag"><span class="tag-code">B28</span><span class="tag-name">Kerja-kerja ubah suai</span></div>
+                <div class="spec-tag building-tag"><span class="tag-code">B29</span><span class="tag-name">Kerja bangunan - hospital</span></div>
+            </div>
+        </div>
+
+        <!-- CIVIL PANEL -->
+        <div class="spec-panel" id="civil">
+            <div class="panel-bar civil">
+                <span class="panel-bar-icon">🛣️</span>
+                <span class="panel-bar-title civil">Civil Engineering</span>
+                <span class="panel-bar-sub">15 Specialisations</span>
+            </div>
+            <div class="tags-grid">
+                <div class="spec-tag civil-tag"><span class="tag-code">CE01</span><span class="tag-name">Pembinaan jalan dan pavemen</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE02</span><span class="tag-name">Pembinaan jambatan dan jeti</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE03</span><span class="tag-name">Struktur merin</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE06</span><span class="tag-name">Struktur saliran pengaliran dan kawalan banjir</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE08</span><span class="tag-name">Sistem perlindungan dan penstabilan cerun</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE10</span><span class="tag-name">Kerja cerucuk</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE11</span><span class="tag-name">Kerja pembaikan struktur konkrit</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE12</span><span class="tag-name">Kerja penyiasatan tanah</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE13</span><span class="tag-name">Pemasangan papan iklan</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE14</span><span class="tag-name">Landskap diluar bangunan</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE21</span><span class="tag-name">Pembinaan kejuruteraan awam</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE24</span><span class="tag-name">Struktur menara</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE34</span><span class="tag-name">Kerja pemasangan konkrit pratuang</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE35</span><span class="tag-name">Ujian konkrit</span></div>
+                <div class="spec-tag civil-tag"><span class="tag-code">CE36</span><span class="tag-name">Kerja-kerja tanah</span></div>
+            </div>
+        </div>
+
+        <!-- M&E PANEL -->
+        <div class="spec-panel" id="mechanical">
+            <div class="panel-bar me">
+                <span class="panel-bar-icon">⚙️</span>
+                <span class="panel-bar-title me">Mechanical &amp; Electrical Engineering</span>
+                <span class="panel-bar-sub">2 Specialisations</span>
+            </div>
+            <div class="tags-grid">
+                <div class="spec-tag me-tag"><span class="tag-code">M03</span><span class="tag-name">Lift dan eskalator</span></div>
+                <div class="spec-tag me-tag"><span class="tag-code">M15</span><span class="tag-name">Kelengkapan mekanikal pelbagai</span></div>
+            </div>
+        </div>
+
+        <!-- FACILITY PANEL -->
+        <div class="spec-panel" id="facility">
+            <div class="panel-bar facility">
+                <span class="panel-bar-icon">📊</span>
+                <span class="panel-bar-title facility">Facility Management</span>
+                <span class="panel-bar-sub">Category Registered</span>
+            </div>
+            <div class="tags-grid">
+                <div class="empty-tag">No individual specialisations listed — category registration active.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRADE HIGHLIGHT -->
+    <section class="grade-section">
+        <div class="reveal">
+            <div class="grade-card">
+                <div>
+                    <div class="grade-eyebrow">CIDB Contractor Registration</div>
+                    <div class="grade-title">HIGHEST CONTRACTOR<br>CLASSIFICATION IN MALAYSIA</div>
+                    <p class="grade-desc">
+                        As a CIDB Grade G7 contractor, Teamcoat Engineering is authorised to tender for government and private projects of <strong style="color:white;">unlimited contract value</strong>
+                        — the highest classification awarded by the Construction Industry Development Board Malaysia.
+                    </p>
+                    <div class="grade-certs">
+                        <div class="grade-cert"><span class="tick">✓</span> PPK 1960409-WP001006</div>
+                        <div class="grade-cert"><span class="tick">✓</span> SPKK Certified</div>
+                        <div class="grade-cert"><span class="tick">✓</span> STB Certified</div>
+                        <div class="grade-cert"><span class="tick">✓</span> Valid Until May 2027</div>
+                    </div>
+                </div>
+                <div class="grade-badge-big">G7<span>CIDB</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <div class="contact-section" id="contact">
+        <div class="contact-grid">
+            <div class="contact-group">
+                <h4>Phone &amp; Fax</h4>
+                <div class="contact-item"><div class="ci-icon">📞</div><span class="ci-text">03-6135 1488</span></div>
+                <div class="contact-item"><div class="ci-icon">📞</div><span class="ci-text">03-6135 2388</span></div>
+                <div class="contact-item"><div class="ci-icon">📠</div><span class="ci-text">03-6135 1210</span></div>
+            </div>
+            <div class="contact-group">
+                <h4>Email &amp; Address</h4>
+                <div class="contact-item"><div class="ci-icon">✉️</div><span class="ci-text">teamcoat_management@yahoo.com</span></div>
+                <div class="contact-item"><div class="ci-icon">✉️</div><span class="ci-text">src.consultant@gmail.com</span></div>
+                <div class="contact-item"><div class="ci-icon">📍</div><span class="ci-text">Wisma Teamcoat, No. 2 Jalan 6,<br>Selayang Pandang, 68100 Batu Caves, Selangor</span></div>
+            </div>
+            <div class="map-wrap">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.431874297598!2d101.6580939747307!3d3.2422659967327996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc46e29a8d31d7%3A0x9dce923a8349575e!2sTeamcoat%20Engineering%20Sdn.%20Bhd.!5e0!3m2!1sen!2smy!4v1773210121738!5m2!1sen!2smy"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">TEAMCOAT ENGINEERING</div>
+        <p>&copy; 2026 Teamcoat Engineering Sdn. Bhd. · Selangor, Malaysia</p>
+        <p>CIDB PPK 1960409-WP001006</p>
+    </footer>
+
+    <script>
+        /* Scroll reveal */
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        /* Animated counters */
+        function animateCounter(el) {
+            const target = parseInt(el.dataset.target, 10);
+            const dur = 1400;
+            const start = performance.now();
+            (function step(now) {
+                const p = Math.min((now - start) / dur, 1);
+                const eased = 1 - Math.pow(1 - p, 3);
+                el.textContent = Math.round(eased * target);
+                if (p < 1) requestAnimationFrame(step);
+            })(start);
+        }
+
+        const cntObs = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.cnt').forEach(animateCounter);
+                    cntObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+        document.querySelectorAll('.stat-item').forEach(el => cntObs.observe(el));
+
+        /* Hamburger menu */
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            nav.classList.toggle('open');
+        });
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                nav.classList.remove('open');
+            });
+        });
+
+        /* Tab switching */
+        const specTabs = document.querySelectorAll('.spec-tab');
+        const specPanels = document.querySelectorAll('.spec-panel');
+
+        specTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                specTabs.forEach(t => t.classList.remove('active', 'building', 'civil', 'me', 'facility'));
+                specPanels.forEach(p => p.classList.remove('active'));
+
+                const colorMap = { building: 'building', civil: 'civil', mechanical: 'me', facility: 'facility' };
+                tab.classList.add('active', colorMap[tab.dataset.tab]);
+
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
