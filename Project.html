@@ -68,33 +68,61 @@
             flex-wrap: wrap;
         }
 
-        .logo-wrap { display: flex; align-items: center; gap: 12px; }
+        .logo-wrap { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
 
         .logo-icon {
-            width: 36px; height: 36px; background: var(--teal);
-            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            width: 36px; 
+            height: 36px; 
+            background: var(--teal);
+            border-radius: 8px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
         }
 
         .logo-text {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 20px; letter-spacing: 0.12em; color: var(--text);
+            font-size: 20px; 
+            letter-spacing: 0.12em; 
+            color: var(--text);
         }
         .logo-text span { color: var(--teal); }
 
-        nav { margin-left: auto; display: flex; gap: 32px; align-items: center; }
+        nav { 
+            margin-left: auto; 
+            display: flex; 
+            gap: 32px; 
+            align-items: center; 
+        }
 
         nav a {
-            text-decoration: none; font-size: 13px; font-weight: 600;
-            letter-spacing: 0.04em; color: var(--sub); transition: color 0.2s;
+            text-decoration: none; 
+            font-size: 13px; 
+            font-weight: 600;
+            letter-spacing: 0.04em; 
+            color: var(--sub); 
+            transition: color 0.2s;
         }
         nav a:hover { color: var(--teal); }
         nav a.active { color: var(--teal); }
 
         .btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 9px 22px; border-radius: 8px;
-            font-size: 13px; font-weight: 700; letter-spacing: 0.03em;
-            text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px;
+            padding: 9px 22px; 
+            border-radius: 8px;
+            font-size: 13px; 
+            font-weight: 700; 
+            letter-spacing: 0.03em;
+            text-decoration: none; 
+            transition: all 0.2s; 
+            border: none; 
+            cursor: pointer;
         }
         .btn-primary { background: var(--teal); color: white; }
         .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(8,145,178,0.3); }
@@ -112,8 +140,12 @@
             z-index: 200;
         }
         .hamburger span {
-            display: block; width: 24px; height: 2px;
-            background: var(--text); border-radius: 2px; transition: all 0.3s ease;
+            display: block; 
+            width: 24px; 
+            height: 2px;
+            background: var(--text); 
+            border-radius: 2px; 
+            transition: all 0.3s ease;
         }
         .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
         .hamburger.open span:nth-child(2) { opacity: 0; }
@@ -124,31 +156,58 @@
             background: var(--offwhite);
             border-bottom: 1px solid var(--border);
             padding: 72px 60px 64px;
-            position: relative; overflow: hidden;
+            position: relative; 
+            overflow: hidden;
         }
         .page-hero::before {
-            content: ''; position: absolute; top: -100px; right: -100px;
-            width: 500px; height: 500px;
+            content: ''; 
+            position: absolute; 
+            top: -100px; 
+            right: -100px;
+            width: 500px; 
+            height: 500px;
             background: radial-gradient(circle, rgba(8,145,178,0.07) 0%, transparent 70%);
-            border-radius: 50%; pointer-events: none;
+            border-radius: 50%; 
+            pointer-events: none;
         }
-        .page-hero-inner { position: relative; z-index: 1; max-width: 640px; }
+        .page-hero-inner { 
+            position: relative; 
+            z-index: 1; 
+            max-width: 640px; 
+        }
 
         .breadcrumb {
-            display: flex; align-items: center; gap: 8px;
-            font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
-            text-transform: uppercase; color: var(--muted); margin-bottom: 18px;
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            font-size: 12px; 
+            font-weight: 600; 
+            letter-spacing: 0.08em;
+            text-transform: uppercase; 
+            color: var(--muted); 
+            margin-bottom: 18px;
         }
         .breadcrumb span { color: var(--teal); }
 
         .page-title {
             font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(52px, 7vw, 88px);
-            letter-spacing: 0.03em; color: var(--text); line-height: 0.95;
+            letter-spacing: 0.03em; 
+            color: var(--text); 
+            line-height: 0.95;
         }
-        .page-title em { font-style: normal; color: var(--teal); }
+        .page-title em { 
+            font-style: normal; 
+            color: var(--teal); 
+        }
 
-        .page-desc { font-size: 15px; color: var(--sub); line-height: 1.85; max-width: 500px; margin-top: 18px; }
+        .page-desc { 
+            font-size: 15px; 
+            color: var(--sub); 
+            line-height: 1.85;
+            max-width: 500px; 
+            margin-top: 18px; 
+        }
 
         .hero-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
 
@@ -354,9 +413,7 @@
         .reveal.d9  { transition-delay: 0.54s; }
         .reveal.d10 { transition-delay: 0.60s; }
 
-        /* ════════════════════════════════════════
-           TABLET  (≤ 1024px)
-        ════════════════════════════════════════ */
+        /* TABLET  (≤ 1024px) */
         @media (max-width: 1024px) {
 
             header { padding: 0 30px; }
@@ -385,9 +442,7 @@
             footer { padding: 24px 30px; }
         }
 
-        /* ════════════════════════════════════════
-           MOBILE  (≤ 768px)
-        ════════════════════════════════════════ */
+        /*  MOBILE  (≤ 768px) */
         @media (max-width: 768px) {
 
             /* HEADER */
@@ -558,7 +613,7 @@
 
             <div class="gallery-card reveal d5">
                 <div class="gallery-img-wrap" style="aspect-ratio:16/10;">
-                    <img src="../image/5.1.png" alt="IBS System Project">
+                    <img src="image/5.1.png" alt="IBS System Project">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-label">Civil Work</div>
