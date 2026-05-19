@@ -526,9 +526,7 @@
         .reveal.d5 { transition-delay: 0.40s; }
         .reveal.d6 { transition-delay: 0.48s; }
 
-        /* ════════════════════════════════════════
-           TABLET  (≤ 1024px)
-        ════════════════════════════════════════ */
+        /* TABLET  (≤ 1024px) */
         @media (max-width: 1024px) {
 
             header { padding: 0 30px; }
@@ -578,9 +576,7 @@
             footer { padding: 24px 30px; }
         }
 
-        /* ════════════════════════════════════════
-           MOBILE  (≤ 768px)
-        ════════════════════════════════════════ */
+        /*  MOBILE  (≤ 768px) */
         @media (max-width: 768px) {
 
             /* HEADER */
@@ -690,9 +686,7 @@
     </style>
 </head>
 <body>
-
     <div class="top-bar"></div>
-
     <header>
         <div class="logo-wrap">
             <div class="logo-icon">
