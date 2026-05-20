@@ -210,69 +210,163 @@
             animation: up 0.6s ease forwards 0.1s;
         }
         .hero-chip .dot {
-            width: 6px; height: 6px; background: #10b981;
-            border-radius: 50%; box-shadow: 0 0 0 2px rgba(16,185,129,0.25);
+            width: 6px; 
+            height: 6px; 
+            background: #10b981;
+            border-radius: 50%; 
+            box-shadow: 0 0 0 2px rgba(16,185,129,0.25);
         }
 
         .hero-title {
             font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(56px, 7vw, 96px);
-            line-height: 0.95; letter-spacing: 0.02em;
-            color: var(--text); margin-bottom: 24px;
-            opacity: 0; animation: up 0.7s ease forwards 0.25s;
+            line-height: 0.95; 
+            letter-spacing: 0.02em;
+            color: var(--text); 
+            margin-bottom: 24px;
+            opacity: 0; 
+            animation: up 0.7s ease forwards 0.25s;
         }
         .hero-title .accent { color: var(--teal); }
-        .hero-title .stroke { -webkit-text-stroke: 1.5px var(--teal); color: transparent; }
+        .hero-title .stroke { 
+            -webkit-text-stroke: 1.5px var(--teal); 
+            color: transparent; 
+        }
 
         .hero-desc {
-            font-size: 16px; color: var(--sub); line-height: 1.8;
-            max-width: 460px; margin-bottom: 36px;
-            opacity: 0; animation: up 0.7s ease forwards 0.4s; text-align: justify;
+            font-size: 16px; 
+            color: var(--sub); 
+            line-height: 1.8;
+            max-width: 460px; 
+            margin-bottom: 36px;
+            opacity: 0; 
+            animation: up 0.7s ease forwards 0.4s; 
+            text-align: justify;
         }
 
         .hero-actions {
-            display: flex; gap: 12px; flex-wrap: wrap;
-            opacity: 0; animation: up 0.7s ease forwards 0.55s;
+            display: flex; 
+            gap: 12px; 
+            flex-wrap: wrap;
+            opacity: 0; 
+            animation: up 0.7s ease forwards 0.55s;
         }
 
         .hero-right {
-            position: relative; z-index: 2;
-            opacity: 0; animation: up 0.8s ease forwards 0.5s;
+            position: relative; 
+            z-index: 2;
+            opacity: 0; 
+            animation: up 0.8s ease forwards 0.5s;
         }
 
         .cred-card {
-            background: var(--white); border: 1px solid var(--border);
-            border-radius: 20px; padding: 32px;
+            background: var(--white); 
+            border: 1px solid var(--border);
+            border-radius: 20px; 
+            padding: 32px;
             box-shadow: 0 4px 40px rgba(8,145,178,0.1), 0 1px 4px rgba(0,0,0,0.06);
-            position: relative; overflow: hidden;
+            position: relative; 
+            overflow: hidden;
         }
         .cred-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            height: 4px;
             background: linear-gradient(90deg, var(--teal), var(--blue));
         }
-        .cred-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
-        .cred-card-header h3 { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-        .grade-badge { background: var(--teal); color: white; font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.1em; padding: 4px 16px; border-radius: 8px; }
+        .cred-card-header { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            margin-bottom: 28px; 
+        }
+        .cred-card-header h3 { 
+            font-size: 13px; 
+            font-weight: 700; 
+            letter-spacing: 0.1em; 
+            text-transform: uppercase; 
+            color: var(--muted); 
+        }
+        .grade-badge { 
+            background: var(--teal); 
+            color: white; 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 26px; 
+            letter-spacing: 0.1em; 
+            padding: 4px 16px; 
+            border-radius: 8px; 
+        }
 
-        .cidb-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border); }
+        .cidb-row { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 14px 0; 
+            border-bottom: 1px solid var(--border); 
+        }
         .cidb-row:last-of-type { border-bottom: none; }
-        .cidb-key { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-        .cidb-val { font-size: 13px; font-weight: 700; color: var(--text); }
+        .cidb-key { 
+            font-size: 12px; 
+            font-weight: 600; 
+            letter-spacing: 0.06em; 
+            text-transform: uppercase; 
+            color: var(--muted); 
+        }
+        .cidb-val { 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: var(--text); 
+        }
         .cidb-val .tick { color: #10b981; margin-right: 3px; }
-        .cred-note { margin-top: 20px; font-size: 11px; color: var(--muted); line-height: 1.6; }
+        .cred-note { 
+            margin-top: 20px; 
+            font-size: 11px; 
+            color: var(--muted); 
+            line-height: 1.6; 
+        }
 
         /* ─── STATS ─── */
-        .stats-bar { background: var(--teal-deep); display: grid; grid-template-columns: repeat(4, 1fr); }
-        .stat-item { padding: 32px 40px; border-right: 1px solid rgba(255,255,255,0.1); }
+        .stats-bar { 
+            background: var(--teal-deep); 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+        }
+        .stat-item { 
+            padding: 32px 40px; 
+            border-right: 1px solid rgba(255,255,255,0.1); 
+        }
         .stat-item:last-child { border-right: none; }
-        .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: white; line-height: 1; letter-spacing: 0.03em; }
-        .stat-num span { font-size: 28px; color: rgba(207,244,252,0.7); }
-        .stat-lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(207,244,252,0.6); margin-top: 6px; }
+        .stat-num { 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 52px; 
+            color: white; 
+            line-height: 1; 
+            letter-spacing: 0.03em; 
+        }
+        .stat-num span { 
+            font-size: 28px; 
+            color: rgba(207,244,252,0.7); 
+        }
+        .stat-lbl { 
+            font-size: 11px; 
+            font-weight: 600; 
+            letter-spacing: 0.15em; 
+            text-transform: uppercase; 
+            color: rgba(207,244,252,0.6); 
+            margin-top: 6px; 
+        }
 
         /* ─── ABOUT ─── */
         .about-section {
-            background: var(--offwhite); padding: 100px 60px;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+            background: var(--offwhite); 
+            padding: 100px 60px;
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 80px; 
+            align-items: start;
         }
         .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
         .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 4vw, 56px); letter-spacing: 0.04em; color: var(--text); line-height: 1; margin-bottom: 28px; }
@@ -831,7 +925,7 @@
                 <div class="cd-icon">🕐</div>
                 <div>
                     <div class="cd-label">Office Hours</div>
-                    <div class="cd-value">Mon – Fri: 8:30 AM – 5:30 PM<br>Sat: 8:30 AM – 1:00 PM</div>
+                    <div class="cd-value">Mon – Fri: 8:30 AM – 5:00 PM<br>Sat: 8:30 AM – 1:00 PM</div>
                 </div>
             </div>
 
